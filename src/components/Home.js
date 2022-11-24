@@ -8,11 +8,11 @@ function Home(user){
         fetch("http://localhost:3000/rentals")
         .then((res) => res.json())
         .then((data) => setRentals(data))
-    }, [ rentals])
+    }, [])
     return (
         <div className="container">
             <div>
-                <h1>Welcome to DNYCR {user.first_name}</h1>
+                <h1>banner</h1>
             </div>
             <Rental rentals={rentals}/>
         </div>
