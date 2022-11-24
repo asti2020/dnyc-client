@@ -88,4 +88,46 @@
     padding: 4px 20px 0;
     width: 100%;
   }
+
+  card {
+    border: #08d 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    width: 45%;
+    height: auto;
+    padding: 100px;
+    border-radius: 5px;
+    background-color: lightblue;
+  }
+
+  card img{
+    width:100%;
+    height: 100%;
+  }
+  .rentalContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    padding: 100px;
+    border-radius: 5px;
+    background-color: lightblue;
+  }
+
+  .rentdet{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 9px;
+    width: 100%;
+    height: auto;
+    /* padding: 20px; */
+    border-radius: 5px;
+    background-color: lightblue;
+  }
     
