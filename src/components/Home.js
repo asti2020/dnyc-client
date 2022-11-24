@@ -1,17 +1,12 @@
-import React, { useEffect } from 'react'
+
 import Rental from './Rental'
+import { HomeNav } from './HomeNav'
 
-function Home(user){
-    const [rentals, setRentals] = React.useState([])
-
-    useEffect(() => {
-        fetch("http://localhost:3000/rentals")
-        .then((res) => res.json())
-        .then((data) => setRentals(data))
-    }, [])
+function Home({ rentals}){
     return (
         <div className="container">
             <div>
+                <HomeNav />
                 <h1>banner</h1>
             </div>
             <Rental rentals={rentals}/>

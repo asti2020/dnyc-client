@@ -6,6 +6,8 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './Login';
 import Home from './Home';
 import NavListing from './NavListing';
+import ListingRental from './ListingRental';
+import Profile from './Profile';
 
 function App() {
   const [user , setUser] = useState({});
@@ -26,13 +28,26 @@ function App() {
     });
   }, [ jwt_token ]);
   console.log(user)
+  const [rentals, setRentals] = useState([]);
+
+  useEffect(() => {
+      fetch("http://localhost:3000/rentals")
+      .then((res) => res.json())
+      .then((data) => setRentals(data))
+  }, [])
+
+function newRental(newRental) {
+  setRentals([...rentals, newRental])
+  console.log(newRental + "nputa")
+}
   return (
     <div className="App">
-      <NavListing />
+      <NavListing user={user} />
       <Routes>
         <Route path="/login" element={<Login setUsers={setUser}/>} />
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home rentals={rentals} />} />
+        <Route path="/add" element={<ListingRental newRental={newRental} />} />
+        <Route path="/profile" element={<Profile user={user} rental={rentals} />} />
       </Routes>
     </div>
   );

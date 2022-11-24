@@ -7,12 +7,13 @@ function RentalList({rental}){
                 <img src={rental.image} alt={rental.title} />
                 <h4>{rental.address}</h4>
                 <div className='rentdet'>
-                <p>${rental.Price}</p> 
+                <p>${rental.price}/M</p> 
                 <p>{rental.area_sqft} /sqft</p>
                 <p>{rental.description}</p>
                 <p>{rental.starting_date}</p>
-                <p>parking :{rental.parking}</p>
-                {/* <p>Owner:{rental.user.first_name}</p> */}
+                {
+                    rental.parking === true ? <p>parking :yes</p> : <p>parking :no</p>
+                }
                 </div>
             </div> 
         </div>

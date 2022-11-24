@@ -10,15 +10,16 @@ function NavListing(){
                     <nav>
                         <ul className='nabBar'>
                             <li>
-                                <NavLink to="Home" >
+                                <NavLink to="" >
                                     <button>Home</button>                          
                                 </NavLink>
                             </li>
+                            if (user.id) {
                             <li>
                                 <NavLink to="Profile" >
                                     <button>Profile</button>
                                 </NavLink>
-                            </li>
+                            </li>}
                             <li>
                                 <NavLink to="Services">
                                     <button>Services</button>                          

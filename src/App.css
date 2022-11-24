@@ -56,9 +56,6 @@
     align-items: center;
     justify-content: space-around;
   }
-
-
-
   .submit {
     background-color: #08d;
     border-radius: 12px;
@@ -115,20 +112,114 @@
 
   .rentalContainer ul{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     flex-direction: row;
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 5px;
     background-color: lightblue;
   }
   .rentdet{
-   text-align: left;
-   display: flex;
-   flex-direction: column;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
   }
 
   .container {
-    margin: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: lightblue;
   }
+  .addForm{
+    color: #06b;
+    font-family: arial;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: lightgray;
+    border-radius: 5px;
+    border: 0;
+    padding: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  }
+  .addForm:hover{
+    color: #08d;
+  }
+  .addform{
+    width: 30vw;
+    border-radius: 5px;
+    text-align: bottom;
+    font-family: arial;
+    background-color: #2F3C7E;
+    color: #eee;
+    padding: 15px;
+    box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+
+  }
+
+  .addform input{
+    border-radius: 7px;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: 100%;
+    padding: 4px 20px 0;
+    margin: 5px;
+    width: 100%;
+    color: darkslateblue;
+    background-color: #eee;
+  }
+
+  textarea {
+    border-radius: 7px;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    height: 100%;
+    padding: 4px 20px 0;
+    width: 100%;
+    color: darkslateblue;
+    background-color: #eee;
+  }
+
+  .listings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 3vw;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+    font-family: arial;
+    background-color: #FBEAEB;
+  }
+
+  h3{
+    color: darkslateblue;
+  }
+
+/* Home nav */
+div.scrollmenu {
+  background-color: #333;
+  overflow: auto;
+  white-space: nowrap;
+  position: fixed;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  background-color: #777;
+}
