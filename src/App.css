@@ -223,3 +223,59 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: #777;
 }
+
+.profile{
+  color: #06b;
+  font-family: arial;
+  margin-top: 50px;
+  font-size: large;
+}
+.deletebtn{
+  color: rebeccapurple;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+  border: 0;
+  padding: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.deletebtn:hover{
+  color: #08d;
+}
+p{
+  color: darkslateblue;
+  font-family: arial;
+  font-size: medium;
+}
+
+.submitlog{
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  outline: 0;
+  text-align: center;
+  width: 10%
+}
+
+.updateform input{
+  width: 30vw;
+  border-radius: 5px;
+  text-align: bottom;
+  font-family: arial;
+  background-color: #2F3C7E;
+  color: #eee;
+  padding: 15px;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+

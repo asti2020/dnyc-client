@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 
 function LoginForm({setUsers}) {
-    const navigate = useNavigate();
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
@@ -27,7 +25,7 @@ function LoginForm({setUsers}) {
                 res.json()
                 .then(user => {
                     localStorage.setItem("jwt", user.token);
-                    navigate('/')
+                    console.log(user);
                 })
                     }
         })

@@ -14,12 +14,11 @@ function NavListing(){
                                     <button>Home</button>                          
                                 </NavLink>
                             </li>
-                            if (user.id) {
                             <li>
                                 <NavLink to="Profile" >
                                     <button>Profile</button>
                                 </NavLink>
-                            </li>}
+                            </li>
                             <li>
                                 <NavLink to="Services">
                                     <button>Services</button>                          

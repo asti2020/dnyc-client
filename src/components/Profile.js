@@ -1,16 +1,27 @@
-import React from 'react'
-import {DeleteRental} from './DeleteRental'
-import  Rental from  './Rental'
 
-function Profile({user, rental}) {
-  
-            if (rental.user_id === user.id) {
+import { useNavigate } from 'react-router-dom'
+import UserRental from './UserRental'
+
+function Profile({user, handleDeleteItem}) {
+    console.log(user.rentals + "i am user rentals")
+    const navigate = useNavigate()
+    if (user.id) {
                 return  (
-                    <>
-                    <Rental key={rental.id} rentals={rental} />
-                <DeleteRental key={rental.id} rental={rental} />
+                <>
+                    <div className="profileContainer">
+                        <div className="profile">
+                            <h3> Hello {user.first_name}! </h3>
+                        </div>
+                        <div className="dashbord">
+                            <UserRental handleDeleteItem={handleDeleteItem} rentals = {user.rentals} />
+                        </div>
+                    </div>
                 </>
-                )
-             }
-            }
+                )}
+    else {
+        navigate("/login")
+        return 
+    }
+}
+            
 export default Profile

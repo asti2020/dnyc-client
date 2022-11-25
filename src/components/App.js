@@ -8,38 +8,45 @@ import Home from './Home';
 import NavListing from './NavListing';
 import ListingRental from './ListingRental';
 import Profile from './Profile';
+import Rental from './Rental';
+import UpdateRental from './UpdateRental';
 
 function App() {
   const [user , setUser] = useState({});
   const jwt_token = localStorage.getItem('jwt');
-  console.log(jwt_token);
+  // console.log(jwt_token);
   useEffect(() => {
-    fetch('/me',{
+    fetch('http://localhost:3000/me',{
       method: 'GET',
       headers: {
-        Authorization: "Bearer" + jwt_token,
+        Authorization: "Bearer " + jwt_token,
         "Content-Type": "application/json"
       }, 
     })
     .then((res) => res.json())
-    .then((user) => {
-      console.log(user.first_name);
-      setUser(user);
+    .then((dbuser) => {
+      // console.log(user + "i am inside the me ");
+      setUser(dbuser);
     });
-  }, [ jwt_token ]);
-  console.log(user)
-  const [rentals, setRentals] = useState([]);
+  }, [jwt_token]);
+  // console.log(user.first_name + "i am outside the me ");
 
+  const [rentals, setRentals] = useState([]);
   useEffect(() => {
       fetch("http://localhost:3000/rentals")
       .then((res) => res.json())
       .then((data) => setRentals(data))
   }, [])
-
+  
 function newRental(newRental) {
   setRentals([...rentals, newRental])
   console.log(newRental + "nputa")
 }
+function handleDeleteItem(deletedItem) {
+  const updatedItems = rentals.filter((item) => item.id !== deletedItem.id);
+  setRentals(updatedItems);
+}
+
   return (
     <div className="App">
       <NavListing user={user} />
@@ -47,7 +54,8 @@ function newRental(newRental) {
         <Route path="/login" element={<Login setUsers={setUser}/>} />
         <Route path="/" element={<Home rentals={rentals} />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
-        <Route path="/profile" element={<Profile user={user} rental={rentals} />} />
+        <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
+        <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
       </Routes>
     </div>
   );
