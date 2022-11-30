@@ -278,4 +278,69 @@ p{
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+.preview{
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 5px;
+  text-align: bottom;
+  font-family: arial;
+  background-color: white;
+  color: #eee;
+  padding: 15px;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}
+.containerPrev{
+  display: flex;
+  flex-direction: column;
+  margin: 3vw;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  font-family: arial;
+  color: #eee;
+}
+.containerPrev img{
+  width: 50vw;
+  height: auto;
+  border-radius: 5px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
+lable{
+  color: #eee;
+}
+.rentprev{
+  color: black;
+  font-family: arial;
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1vw;
+}
+label{
+  color: black;
+  font-family: arial;
+  font-size: medium;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1vw;
+}
+
+.placeOffers{
+  color: #06b;
+  display: flex;
+  flex-direction: column;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: lightgray;
+  border-radius: 5px;
+  border: 0;
+  padding: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}

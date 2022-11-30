@@ -10,6 +10,7 @@ import ListingRental from './ListingRental';
 import Profile from './Profile';
 import Rental from './Rental';
 import UpdateRental from './UpdateRental';
+import PreviewPage from './PreviewPage';
 
 function App() {
   const [user , setUser] = useState({});
@@ -56,6 +57,7 @@ function handleDeleteItem(deletedItem) {
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
         <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
+        <Route path="/rental/:id" element={<PreviewPage user={user} />} />
       </Routes>
     </div>
   );
