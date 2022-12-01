@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EventCalender from './EventCalender';
 import Booking from './Booking';
+import Map from './Map';
 
 function PreviewPage () {
     const [preview, setPreview] = useState({});
@@ -56,7 +57,8 @@ function PreviewPage () {
                         </div>
                     </div>
                     <div className='map'>
-                        <h3>Map:Where you will be</h3>
+                        <h3>Map:Where you wanna live??</h3>
+                        <Map />
                     </div>
                     <div className='booking'>
                         <h3>Reviews</h3> 

@@ -11,6 +11,8 @@ function EventCalender () {
   const [meeting, setMeeting] = useState({});
   const [events, setEvents] = useState([]);
   const jwt_token = localStorage.getItem('jwt');
+
+  
   const handleDateSelect = (selectInfo) => {
     let title = prompt('Please enter a new title for your event')
     let start_time = selectInfo.startStr
@@ -46,10 +48,6 @@ function EventCalender () {
   console.log(start_date);
   console.log(end_date);
   console.log(allDay);
-  // useEffect(() => {
-
-  // }, [jwt_token]);
-
     
     if (start_date) {
       calendarApi.addEvent({
@@ -147,8 +145,17 @@ function EventCalender () {
         },
       }}
       />
-        
-
+      <div className='eventsDet'>
+        {events.map(event => (
+          <div key={event.title} className='event'>
+            <p>{event.title}</p>
+            <p>{event.start}</p>
+            <p>{event.end}</p>
+            <p>{event.allDay}</p>
+            <p>{event.className}</p>
+            </div>
+        ))}
+            </div>
     </div>
   
   )
