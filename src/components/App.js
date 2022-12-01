@@ -11,6 +11,7 @@ import Profile from './Profile';
 import Rental from './Rental';
 import UpdateRental from './UpdateRental';
 import PreviewPage from './PreviewPage';
+import  EventCalender  from './EventCalender';
 
 function App() {
   const [user , setUser] = useState({});
@@ -58,6 +59,7 @@ function handleDeleteItem(deletedItem) {
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
         <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
         <Route path="/rental/:id" element={<PreviewPage user={user} />} />
+        <Route path="/cal" element={<EventCalender user={user} />} />
       </Routes>
     </div>
   );

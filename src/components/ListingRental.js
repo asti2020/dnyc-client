@@ -50,8 +50,10 @@ function ListingRental ({newRental}){
         .then(res => res.json())
 
         .then(newList => { 
+        //   get POp up from Swal_fire analytics
             console.log(newList)
             newRental(newList)
+
         })
         setAddress("")
         setTitle("")

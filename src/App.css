@@ -344,3 +344,68 @@ label{
   padding: 6px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.claender{
+  color: rgb(37, 0, 79);
+  flex-direction: column;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bokkit{
+  color: #06b;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  font-family: arial;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bokkit:hover{
+  color: #08d;
+}
+
+.formBook{
+  background-color: skyblue;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  margin-bottom: 2vw;
+  padding: 2vw;
+  font-family: arial;
+  font-size: 16px;
+}
+
+.formBook input{
+  width: 100%;
+  border-radius: 5px;
+  text-align: bottom;
+  font-family: arial;
+  background-color: lavender;
+  color: black;
+  padding: 1vw;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}
+.formBook textarea{
+  width: 100%;
+  border-radius: 5px;
+  text-align: bottom;
+  font-family: arial;
+  background-color: lavender;
+  color: black;
+  padding: 1vw;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}

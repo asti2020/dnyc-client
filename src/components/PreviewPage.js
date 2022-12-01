@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import EventCalender from './EventCalender';
+import Booking from './Booking';
 
 function PreviewPage () {
     const [preview, setPreview] = useState({});
@@ -43,15 +45,24 @@ function PreviewPage () {
                 </div>
             </div>
                 <div>
-                        <h3 className='rentprev'>Calendy avilable</h3>
-                    <div className='map'>
-                        <h3>Map</h3>
+                <h3 className='rentprev'>Calendy avilable</h3>
+                    <div className='bokkit'>
+                        <div className='calendy'>
+                            <EventCalender />
+                        </div>
+                        <div className='booking'>
+                            <h3>Wann a Book??</h3> 
+                            <Booking />
+                        </div>
                     </div>
-                    <div className='calendy'>
-                        <h3> Appointment Calender</h3>
+                    <div className='map'>
+                        <h3>Map:Where you will be</h3>
                     </div>
                     <div className='booking'>
-                        <h3>Booking Form and details</h3> 
+                        <h3>Reviews</h3> 
+                    </div>
+                    <div className='calendy'>
+                        <h3> Contact Host</h3>
                     </div>
                 </div>
             </div>
