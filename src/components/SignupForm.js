@@ -3,11 +3,11 @@ import { useState } from 'react'
 
 function SignupForm({setUsers}) {
 
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
+    const [first_name, setFirstName] = useState('')
+    const [last_name, setLastName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [birthDate, setBirthDate] = useState('')
+    const [birth_date, setBirthDate] = useState('')
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,19 +16,27 @@ function SignupForm({setUsers}) {
             headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify({
-                firstName,
-                lastName,
+                first_name,
+                last_name,
                 email,
                 password,
-                birthDate
-            })
+                birth_date
             })
             .then((res) => res.json())
             .then((res) => {
                 setUsers(res)
                 console.log(res)
             })
+
+
+        })
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setPassword('')
+        setBirthDate('')
     }
+
     return (
         <div className="form-group">
             <h1 className="signupFormH">SignUp</h1>
@@ -38,7 +46,7 @@ function SignupForm({setUsers}) {
                             type="text" 
                             className="form-control" 
                             placeholder="First Name"
-                            value={firstName}
+                            value={first_name}
                             onChange={(e) => setFirstName(e.target.value)}
                         />
                         <label>Last Name</label>
@@ -46,7 +54,7 @@ function SignupForm({setUsers}) {
                             type="text" 
                             className="form-control" 
                             placeholder="Last Name" 
-                            value={lastName}
+                            value={last_name}
                             onChange={(e) => setLastName(e.target.value)}
                         />
                         <label>Email</label>
@@ -71,7 +79,7 @@ function SignupForm({setUsers}) {
                             type="date" 
                             className="form-control" 
                             placeholder="Birth Date" 
-                            value={birthDate}
+                            value={birth_date}
                             onChange={(e) => setBirthDate(e.target.value)}
                         />
                         <button className="submit" type="submit">Sign up</button>

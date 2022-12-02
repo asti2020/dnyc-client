@@ -8,10 +8,12 @@ import Home from './Home';
 import NavListing from './NavListing';
 import ListingRental from './ListingRental';
 import Profile from './Profile';
-import Rental from './Rental';
 import UpdateRental from './UpdateRental';
 import PreviewPage from './PreviewPage';
-import  EventCalender  from './EventCalender';
+import  CalenderEve  from './CalenderEve';
+import Save from './Save';
+// import CalenderEve from './CalenderEve';
+// import Rental from './Rental';
 
 function App() {
   const [user , setUser] = useState({});
@@ -59,7 +61,8 @@ function handleDeleteItem(deletedItem) {
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
         <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
         <Route path="/rental/:id" element={<PreviewPage user={user} />} />
-        <Route path="/cal" element={<EventCalender user={user} />} />
+        <Route path="/cal" element={<CalenderEve user={user} />} />
+        <Route path="/save" element={<Save rental={rentals} />} />
       </Routes>
     </div>
   );

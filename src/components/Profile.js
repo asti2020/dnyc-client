@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import UserRental from './UserRental'
+import BookingListing from './BookingListing'
 
 
 function Profile({user, handleDeleteItem}) {
     const [avatar, setAvatar] = useState('')
-    console.log(user.rentals + "i am user rentals")
+    console.log(user.email + " i am user rentals")
     const navigate = useNavigate()
 
     function onImageChange(e) {
@@ -22,15 +23,22 @@ function Profile({user, handleDeleteItem}) {
                     <div className="profileContainer">
                         <div className="profile">
                             <h3> Hello {user.first_name}! </h3>
-                            <img src={user.avatar} alt={user.first_name} />
+                            <h5> add a profile picture</h5>
+                            <img src={user.avatar} alt={user.first_name + "alt"} />
                             <div>
                                 <form onSubmit={handleSubmit}>
-                                <input type="file" accept="image/*" multiple={false} onChange={onImageChange}  value={avatar}/>
+                                    <input type="file" accept="image/*" multiple={false} onChange={onImageChange}  value={avatar}/>
                                 </form>
                             </div>
                         </div>
                         <div className="dashbord">
                             <UserRental handleDeleteItem={handleDeleteItem} rentals = {user.rentals} />
+                        </div>
+                        <div>
+                            <h4 className="bookingHead">
+                                Hello there your resent booking are here!!
+                            </h4>
+                            <BookingListing />
                         </div>
                     </div>
                 </>

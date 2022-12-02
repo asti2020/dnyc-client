@@ -413,3 +413,17 @@ label{
 .eventsDet{
   color: black;
 }
+
+.card{
+  background-color: skyblue;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 2vw;
+  margin-bottom: 2vw;
+}
+
+.bookingUser{
+display: flex;
+flex-wrap: wrap;
+}
