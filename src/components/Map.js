@@ -4,7 +4,6 @@ import { withGoogleMap, GoogleMap } from "react-google-maps"
 import PlaceMarker from './PlaceMarker';
 import  {useState} from'react';
 
-
 function Map() {
     const [places, setPlaces] = useState([]);
 

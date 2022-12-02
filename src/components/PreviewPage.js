@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import EventCalender from './EventCalender';
+import CalenderEve from './CalenderEve';
 import Booking from './Booking';
 import Map from './Map';
 
@@ -49,7 +49,7 @@ function PreviewPage () {
                 <h3 className='rentprev'>Calendy avilable</h3>
                     <div className='bokkit'>
                         <div className='calendy'>
-                            <EventCalender />
+                            <CalenderEve />
                         </div>
                         <div className='booking'>
                             <h3>Wann a Book??</h3> 
