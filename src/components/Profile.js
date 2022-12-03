@@ -24,9 +24,11 @@ function Profile({user, handleDeleteItem}) {
                         <div className="profile">
                             <h3> Hello {user.first_name}! </h3>
                             <h5> add a profile picture</h5>
-                            <img src={user.avatar} alt={user.first_name + "alt"} />
+                            {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
                             <div>
-                                <form onSubmit={handleSubmit}>
+                            {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
+                                <form className="avatar" onSubmit={handleSubmit}>
+                                <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} />
                                     <input type="file" accept="image/*" multiple={false} onChange={onImageChange}  value={avatar}/>
                                 </form>
                             </div>

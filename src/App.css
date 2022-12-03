@@ -496,4 +496,12 @@ align-items: left;
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
+.avatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  margin-right: 10px;
+}
+
 

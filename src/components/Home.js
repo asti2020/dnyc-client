@@ -16,7 +16,6 @@ function Home({ rentals, setSearch, search}){
                 {/* <HomeNav /> */}
                 <Hero search={search} setSearch={setSearch}/>
                 <h1>banner</h1>
-                <h1>Search</h1>
                 <h1>Save</h1>
                 <h1>Filter</h1>
             </div>

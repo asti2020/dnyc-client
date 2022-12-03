@@ -8,6 +8,7 @@ function Hero({setSearch, search}) {
             <div className="search-container">
                 <div className="search-icon">
                     <Search search={search} setSearch={setSearch}/>
+                    <button>Add Rentals</button>
                     </div>
             </div>
 
