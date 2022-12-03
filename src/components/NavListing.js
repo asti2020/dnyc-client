@@ -6,12 +6,14 @@ function NavListing(){
     return (
         <>
             <div className='navListhead'>
-                <NavLink to="/"><div className="logo"> <img src="" alt="logo" /></div></NavLink>
+                <NavLink to="/"><div className="log"> <h2 className='logo'> DNYCR </h2></div></NavLink>
                     <nav>
                         <ul className='nabBar'>
+
                             <li>
-                                <NavLink to="" >
-                                    <button>Home</button>                          
+                                <NavLink to="/" className="log">
+                                    <div className="log"> <h2 className='logo'> DNYCR </h2
+                                    ></div>
                                 </NavLink>
                             </li>
                             <li>

@@ -58,8 +58,8 @@ function UpdateRental({rental, handleUpdateRental}) {
                     value={formData.address}
                     placeholder={rental.address}
                     onChange={handleChange}
-                    />
-                    <button className="deletebtn" type="submit">Update</button>
+                />
+                <button className="deletebtn" type="submit">Update</button>
             </form>
             
         </div>

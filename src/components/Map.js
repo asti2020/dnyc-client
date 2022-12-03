@@ -33,26 +33,28 @@ function Map() {
         </GoogleMap>
         )
         );
-        const xMapBounds = { min: null, max: null }
-        const yMapBounds = { min: null, max: null }
+        // const xMapBounds = { min: null, max: null }
+        // const yMapBounds = { min: null, max: null }
     
-        const mapFullyLoaded = false
+        // const mapFullyLoaded = false
         const zoom = 7
     
         const state = {
             lat: 50.0515918,
             lng: 19.9357531
         };
-        const center = {
-            lat: 50.0515918,
-        };
+        // const center = {
+        //     lat: 50.0515918,
+        // };
         const handleMapChanged = () =>{
             getMapBounds()
             setMapCenterPoint()  
         }
         const handleMapMounted =(map)  => {
-            map = map
+            // setMapBounds(map.getBounds());
+            map = map;
         }
+     
         const handleMapFullyLoaded =() =>{
             if (this.mapFullyLoaded)
                 return

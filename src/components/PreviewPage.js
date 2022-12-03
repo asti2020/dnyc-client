@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CalenderEve from './CalenderEve';
 import Booking from './Booking';
 import Map from './Map';
 
-function PreviewPage () {
-    const [preview, setPreview] = useState({});
+function PreviewPage ({rentals}) {
+
+    const params = useParams();
+    console.log(params  + 'params')
+    console.log(rentals[params.rentalID] + "rentals params")
     const { id } = useParams();
+    console.log(rentals + "i am rental id")
+    const [preview, setPreview] = useState({});
     useEffect(() => {
         fetch(`http://localhost:3000/rentals/${id}`)
         .then((res) => res.json())
@@ -20,7 +25,8 @@ function PreviewPage () {
                 <div className="containerPrev">
                     <div className="row">
                         <div className="col-12, rentprev">
-                            <h3>{preview.title} - {preview.features}</h3>
+                            <h3>{preview.title}  {preview.features}</h3>
+                            {/* <h3>{rentals[params.rentalID].title}</h3> */}
                             <h5>  {"4.7"} *  Review</h5>
                             <h5>Famous area:{preview.location}</h5>
                         </div>

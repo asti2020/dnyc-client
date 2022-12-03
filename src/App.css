@@ -97,7 +97,6 @@
     border-radius: 5px;
     text-align: center;
     font-family: arial;
-
   }
 
   .card img{
@@ -414,7 +413,7 @@ label{
   color: black;
 }
 
-.card{
+.cardBook{
   background-color: skyblue;
   border-radius: 5px;
   border: 0;
@@ -427,3 +426,74 @@ label{
 display: flex;
 flex-wrap: wrap;
 }
+
+.logo{
+  /* margin-right: 10px; */
+  color: #eee;
+  margin-right: 35vw;
+  text-align: center;
+  text-indent: 2px;
+}
+.log{
+align-items: left;
+}
+
+
+.footerContainer{
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  font-weight: bold;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.myFoot li{
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.search{
+  height: 20vw;
+  margin-top: 20px;
+}
+
+.search input{
+  width: 65%;
+  height: 50px;
+  border-radius: 5px;
+  text-align: bottom;
+  font-family: arial;
+  background-color: lavender;
+  color: black;
+  padding: 1vw;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search input:focus{
+  outline: none;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+}
+
+

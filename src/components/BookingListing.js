@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
- 
+
 function Booking(){
     const [booked, setBooked] = useState([])
         const jwt_token = localStorage.getItem('jwt')
@@ -18,18 +18,17 @@ function Booking(){
             console.log(data)
             setBooked(data)
         })
-    
     }, [])
 
     console.log(booked + "i am came from booked list")
-    return(
 
+    return(
         <>
             <div>
                 <ul className='bookingUser'>
                     {booked.map((myBook) => ( 
                         <div className='cardBookingOut'>
-                            <div className='card'>
+                            <div className='cardBook'>
                                 <h3>{myBook.name}</h3>
                                 <h4>{myBook.description}</h4>
                                 <h4>{myBook.message}</h4>

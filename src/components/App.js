@@ -2,7 +2,7 @@
 import '../App.css';
 import React from'react';
 import { useState, useEffect } from'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useMatch } from 'react-router-dom';
 import Login from './Login';
 import Home from './Home';
 import NavListing from './NavListing';
@@ -12,8 +12,7 @@ import UpdateRental from './UpdateRental';
 import PreviewPage from './PreviewPage';
 import  CalenderEve  from './CalenderEve';
 import Save from './Save';
-// import CalenderEve from './CalenderEve';
-// import Rental from './Rental';
+import Footer from './Footer';
 
 function App() {
   const [user , setUser] = useState({});
@@ -49,21 +48,30 @@ function newRental(newRental) {
 function handleDeleteItem(deletedItem) {
   const updatedItems = rentals.filter((item) => item.id !== deletedItem.id);
   setRentals(updatedItems);
-}
+} 
 
+const[search, setSearch] = useState("");
+
+const filtredRentals = rentals.filter((rental) => {
+  return rental.title.toLowerCase().includes(search.toLowerCase());
+})
+
+const match = useMatch("/rentals/:id");
+console.log(match + " i am match console")
   return (
     <div className="App">
       <NavListing user={user} />
       <Routes>
         <Route path="/login" element={<Login setUsers={setUser}/>} />
-        <Route path="/" element={<Home rentals={rentals} />} />
+        <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={filtredRentals} />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
         <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
-        <Route path="/rental/:id" element={<PreviewPage user={user} />} />
+        <Route path='/rentals/:id'element={<PreviewPage rentals={filtredRentals} user={user} />} />
         <Route path="/cal" element={<CalenderEve user={user} />} />
         <Route path="/save" element={<Save rental={rentals} />} />
       </Routes>
+      <Footer />
     </div>
   );
   }
