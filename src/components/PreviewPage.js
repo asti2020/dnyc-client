@@ -21,7 +21,7 @@ function PreviewPage ({rentals}) {
     return (
         <>
             <div className='preview'>
-                <h3>Preview your product!!</h3>
+                <h3> {preview.address}</h3>
                 <div className="containerPrev">
                     <div className="row">
                         <div className="col-12, rentprev">
@@ -59,7 +59,7 @@ function PreviewPage ({rentals}) {
                         </div>
                         <div className='booking'>
                             <h3>Wann a Book??</h3> 
-                            <Booking />
+                            <Booking  rental={rentals}/>
                         </div>
                     </div>
                     <div className='map'>

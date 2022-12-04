@@ -13,6 +13,7 @@ import PreviewPage from './PreviewPage';
 import  CalenderEve  from './CalenderEve';
 import Save from './Save';
 import Footer from './Footer';
+import ErrorRoute from '../ErrorRoute';
 
 function App() {
   const [user , setUser] = useState({});
@@ -66,10 +67,11 @@ console.log(match + " i am match console")
         <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={filtredRentals} />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
-        <Route path="/rental/:id/edit" element={<UpdateRental user={user} />} />
+        <Route path="/rental/:id/edit" element={<UpdateRental rental={rentals}user={user} />} />
         <Route path='/rentals/:id'element={<PreviewPage rentals={filtredRentals} user={user} />} />
         <Route path="/cal" element={<CalenderEve user={user} />} />
         <Route path="/save" element={<Save rental={rentals} />} />
+        <Route path="*" element={<ErrorRoute />} />
       </Routes>
       <Footer />
     </div>

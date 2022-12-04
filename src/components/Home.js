@@ -19,13 +19,14 @@ function Home({ rentals, setSearch, search}){
                 <h1>Save</h1>
                 <h1>Filter</h1>
             </div>
-            <Rental rentals={rentals}/>
-           <React.Fragment>
+            <div className="rental-list">
+                <Rental rentals={rentals}/>
+           {/* <React.Fragment>
             <Routes>
                 <Route exact path={`${match}/:id`} component={<PreviewPage/>}/>
                 </Routes>
-            </React.Fragment>
-         
+            </React.Fragment> */}
+        </div>
 
         </div>
     )

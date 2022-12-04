@@ -1,17 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
-
-function Booking() {
+import { useNavigate, useParams } from 'react-router-dom';
+function Booking({rental}) {
+    const {id} = useParams();
+    const navigate = useNavigate()
     const [booking, setBooking] = useState('')
-    const [nameBook, setNameBook] = useState('')
-    const [emailBook, setEmailBook] = useState('')
-    const [checkIn, setCheckIn] = useState('')
-    const [checkOut, setCheckOut] = useState('')
+    const [name, setNameBook] = useState('')
+    const [email, setEmailBook] = useState('')
+    const [startDate, setCheckIn] = useState('')
+    const [endDate, setCheckOut] = useState('')
     const [Message, setMessage] = useState('')
     const[time, setTime] = useState('')
     const jwt_token = localStorage.getItem('jwt');
+    let rental_id  = id
+    console.log( rental_id)
     const handleBookingSubmit = (e) => {
         e.preventDefault();
+        if (rental.user_id !== localStorage.getItem('user_id')) {
+           
         fetch("http://localhost:3000/bookings", {
             method: 'POST',
             headers: {
@@ -19,24 +25,18 @@ function Booking() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                booking: nameBook,
-                email: emailBook,
-                checkIn: checkIn,
-                checkOut: checkOut
+                name: name,
+                email: email,
+                startDate: startDate,
+                endDate: endDate,
             })
         })
         .then(res => res.json())
         .then(res => {
                 console.log(res)
                 if (res.status === "created") {
-                    setBooking(res.booking)
-                    setNameBook(res.nameBook)
-                    setEmailBook(res.emailBook)
-                    setTime(res.time)
-                    setCheckIn(res.meetings.start_time)
-                    setCheckOut(res.checkOut)
-                    setMessage(res.message)
-                    console.log(res.meetings.start_time + "i am came from booking responce ok ")
+                    setBooking(res)
+                    console.log(res+ "i am came from booking responce ok ")
                 }
                 else {
                     setMessage(res.message + "i am came from booking responce not ok ")
@@ -52,9 +52,16 @@ function Booking() {
        .catch(err => {
             console.log(err + "i am came from booking responce error: ")
        })
-        }
-        console.log(booking);
+    }else{
+        navigate('/login')
+        navigate('/')
+    }
 
+    }
+
+
+        console.log(booking);
+        console.log(name);
 
     return (
         <div>
@@ -65,23 +72,23 @@ function Booking() {
                         type="text"
                         className="form-control"
                         name="name"
-                        value={nameBook}
+                        value={name}
                         onChange={e => setNameBook(e.target.value)}
                     />
                     <label>CheckIn Date</label>
                     <input 
                         type="date" 
                         className="form-control" 
-                        name="checkIn"
-                        value={checkIn}
+                        name="startDate"
+                        value={startDate}
                         onChange={e => setCheckIn(e.target.value)}
                     />
                     <label>CheckOut Date</label>
                     <input 
                         type="date" 
                         className="form-control" 
-                        name="checkOut"
-                        value={checkOut}
+                        name="endDate"
+                        value={endDate}
                         onChange={e => setCheckOut(e.target.value)}
                         />
                     <label>Time</label>
@@ -97,7 +104,7 @@ function Booking() {
                     type="email" 
                     className="form-control" 
                     name="email"
-                    value={emailBook}
+                    value={email}
                     onChange={e => setEmailBook(e.target.value)}
                     />
                     <label>Message</label>

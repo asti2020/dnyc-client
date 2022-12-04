@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import UserRental from './UserRental'
 import BookingListing from './BookingListing'
+import ProfileRentalCard from './ProfileRentalCard'
 
 
 function Profile({user, handleDeleteItem}) {
@@ -33,9 +34,15 @@ function Profile({user, handleDeleteItem}) {
                                 </form>
                             </div>
                         </div>
-                        <div className="dashbord">
+                    <div>
+
+                        <h3> My Rentals </h3>
+                        <ProfileRentalCard user={user} handleDeleteItem={handleDeleteItem} rentals={user.rentals} />
+
+                    </div>
+                        {/* <div className="dashbord">
                             <UserRental handleDeleteItem={handleDeleteItem} rentals = {user.rentals} />
-                        </div>
+                        </div> */}
                         <div>
                             <h4 className="bookingHead">
                                 Hello there your resent booking are here!!

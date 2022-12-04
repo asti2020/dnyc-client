@@ -1,7 +1,8 @@
 import React from 'react'
+import { useParams } from 'react-router-dom';
 const jwt_token = localStorage.getItem('jwt');
 export const DeleteRental = ({rental, handleDeleteItem}) => {
-
+    const {id} = useParams();
     const deleteRental = (e) => {
         e.preventDefault()
     fetch(`http://localhost:3000/rentals/${rental.id}`, {
@@ -24,9 +25,6 @@ export const DeleteRental = ({rental, handleDeleteItem}) => {
     return (
     <div>
         <button className="deletebtn" onClick={deleteRental}>Delete</button>
-        <h1> deleted now update the state</h1>
-        <h1>The product is update</h1>
-        <h1>The product is Booked</h1>
     </div>
 
     )
