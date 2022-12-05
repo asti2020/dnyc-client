@@ -27,7 +27,6 @@ function Home({ rentals, setSearch, search}){
                 </Routes>
             </React.Fragment> */}
         </div>
-
         </div>
     )
 }

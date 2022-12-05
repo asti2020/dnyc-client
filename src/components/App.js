@@ -13,7 +13,8 @@ import PreviewPage from './PreviewPage';
 import  CalenderEve  from './CalenderEve';
 import Save from './Save';
 import Footer from './Footer';
-import ErrorRoute from '../ErrorRoute';
+import ErrorRoute from './ErrorRoute';
+import Map from './Map.js';
 
 function App() {
   const [user , setUser] = useState({});
@@ -51,7 +52,8 @@ function handleDeleteItem(deletedItem) {
   setRentals(updatedItems);
 } 
 
-const[search, setSearch] = useState("");
+const[search, setSearch] = useState('');
+// const filtredRentals = rentals
 
 const filtredRentals = rentals.filter((rental) => {
   return rental.title.toLowerCase().includes(search.toLowerCase());
@@ -61,17 +63,20 @@ const match = useMatch("/rentals/:id");
 console.log(match + " i am match console")
   return (
     <div className="App">
+
       <NavListing user={user} />
       <Routes>
+        <Route path="*" element={<ErrorRoute />} />
         <Route path="/login" element={<Login setUsers={setUser}/>} />
         <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={filtredRentals} />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
         <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
         <Route path="/rental/:id/edit" element={<UpdateRental rental={rentals}user={user} />} />
-        <Route path='/rentals/:id'element={<PreviewPage rentals={filtredRentals} user={user} />} />
+        <Route path='/rentals/:id'element={<PreviewPage rentals={rentals} user={user} />} />
         <Route path="/cal" element={<CalenderEve user={user} />} />
         <Route path="/save" element={<Save rental={rentals} />} />
         <Route path="*" element={<ErrorRoute />} />
+        <Route path="/map" element={<Map  rentals={rentals}/>} />
       </Routes>
       <Footer />
     </div>

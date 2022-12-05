@@ -104,11 +104,12 @@ function UpdateRental({rental, handleUpdateRental}) {
                 <div className='updateform'>
                 <label>Image</label>
                 <input 
-                    name="parking"
-                    value={formData.parking}
-                    placeholder={rental.parking}
+                    name="image"
+                    value={formData.image}
+                    placeholder={rental.image}
                     onChange={handleChange}
                     type="text"
+                    className='control-image'
                 />
                 </div>
                 <div className='updateform'>

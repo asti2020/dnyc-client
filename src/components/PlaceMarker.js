@@ -6,10 +6,6 @@ import PlaceInfoWindow  from './PlaceInfoWindow'
 
 function PlaceMarker({lat, lng, name, price, description, id}) {
   const [ showTooltip, setShowTooltip ] = useState(false);
-  // const [name, setName] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [price, setPrice] = useState(0);
-
   const clickTooltip = () => {
     setShowTooltip(!showTooltip);
   }
@@ -25,7 +21,6 @@ function PlaceMarker({lat, lng, name, price, description, id}) {
         lng: parseFloat(lng)
       }} 
       onClick={clickTooltip}>
-        key = {`marker${id}`}
       { showTooltip && (
         <PlaceInfoWindow 
             key={`place${id}`}    
@@ -35,7 +30,6 @@ function PlaceMarker({lat, lng, name, price, description, id}) {
             closeWindow={closeWindow}/>
       )}
     </Marker> 
-
   );
 }
 

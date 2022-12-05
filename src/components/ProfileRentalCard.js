@@ -11,13 +11,12 @@ function ProfileRentalCard({rentals, handleDeleteItem}) {
                 <div className="card-body" key={rental.id}>
                     <h5 className="card-title">{rental.name}</h5>
                     <p className="card-text">{rental.description}</p>
+                    <p className="card-text">{rental.address}</p>
                     <DeleteRental rental={rental} handleDeleteItem={handleDeleteItem} />
-                        <button className="button" onClick={() => navigate(`/rental/${rental
-                           .id}/edit`)}>Go to Rental</button>
-                            </div>
+                        <button className="deletebtn" onClick={() => navigate(`/rental/${rental.id}/edit`)}>Edit</button>
+                </div>
             ))}
         </div>
-      
     )
 }
 export default ProfileRentalCard;

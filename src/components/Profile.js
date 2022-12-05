@@ -34,21 +34,19 @@ function Profile({user, handleDeleteItem}) {
                                 </form>
                             </div>
                         </div>
-                    <div>
-
-                        <h3> My Rentals </h3>
-                        <ProfileRentalCard user={user} handleDeleteItem={handleDeleteItem} rentals={user.rentals} />
-
-                    </div>
-                        {/* <div className="dashbord">
-                            <UserRental handleDeleteItem={handleDeleteItem} rentals = {user.rentals} />
-                        </div> */}
-                        <div>
-                            <h4 className="bookingHead">
-                                Hello there your resent booking are here!!
-                            </h4>
-                            <BookingListing />
+                        <div className="profileListing">
+                                <div>
+                                    <h3> Your Listing Rentals  </h3>
+                                    <ProfileRentalCard user={user} handleDeleteItem={handleDeleteItem} rentals={user.rentals} />
+                                </div>
+                                <div>
+                                        <h3 className="bookingHead">
+                                            Booked items!!
+                                        </h3>
+                                        <BookingListing />
+                                </div>
                         </div>
+                    
                     </div>
                 </>
                 )}
@@ -59,3 +57,8 @@ function Profile({user, handleDeleteItem}) {
 }
             
 export default Profile
+
+
+  /* <div className="dashbord">
+                            <UserRental handleDeleteItem={handleDeleteItem} rentals = {user.rentals} />
+                        </div> */

@@ -64,7 +64,7 @@ function PreviewPage ({rentals}) {
                     </div>
                     <div className='map'>
                         <h3>Map:Where you wanna live??</h3>
-                        <Map />
+                        <Map rentals={rentals}/>
                     </div>
                     <div className='booking'>
                         <h3>Reviews</h3> 

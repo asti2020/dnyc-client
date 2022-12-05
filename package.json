@@ -4,6 +4,9 @@
   "private": true,
   "prioxy": "http://localhost:3000",
   "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@fullcalendar/daygrid": "^5.11.3",
     "@fullcalendar/interaction": "^5.11.3",
     "@fullcalendar/react": "^5.11.3",
@@ -19,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-google-map": "^3.1.1",
     "react-google-maps": "^9.4.5",
+    "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

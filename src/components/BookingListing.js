@@ -24,7 +24,7 @@ function Booking(){
 
     return(
         <>
-            <div>
+            <div className='bookinglistdiv'>
                 <ul className='bookingUser'>
                     {booked.map((myBook) => ( 
                         <div className='cardBookingOut'>

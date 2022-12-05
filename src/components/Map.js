@@ -1,29 +1,25 @@
 
-import React, { useEffect } from'react';
 import { withGoogleMap, GoogleMap } from "react-google-maps"
 import PlaceMarker from './PlaceMarker';
-import  {useState} from'react';
 
-function Map() {
-    const [places, setPlaces] = useState([]);
 
-    const arr = [ {lat: 40.7128, lng: -74.0060}, {lat: 34.221, lng: -118.511}, {lat: 65.0522, lng: -18.2437} ];
+function Map({rentals}) {
 
     const AirbnbMap = withGoogleMap(props => (
         <GoogleMap
-            defaultCenter={props.center}
+            defaultCenter={{ lat: 40.76727216, lng: -73.99392888 }}
             defaultZoom={props.zoom}
             ref = {props.onMapMounted}
             onZoomChanged = {props.onZoomChanged}
             onCenterChanged = {props.onCenterChanged}
             onMapMounted = {props.onMapMounted}>
-
-            {arr.map((place, index) => (
+            
+            { rentals.map((place, index) => (
                 <PlaceMarker 
                     key={index}
-                    name={place.name}
-                    lat={place.lat}
-                    lng={place.lng}
+                    name={place.title}
+                    lat={place.latitude}
+                    lng={place.longitude}
                     description={place.description}
                     price={place.price}
                 ></PlaceMarker>
@@ -33,19 +29,15 @@ function Map() {
         </GoogleMap>
         )
         );
-        // const xMapBounds = { min: null, max: null }
-        // const yMapBounds = { min: null, max: null }
-    
-        // const mapFullyLoaded = false
-        const zoom = 7
+        const zoom = 9;
     
         const state = {
-            lat: 50.0515918,
-            lng: 19.9357531
+            lat: 40.7077,
+            lng: 74.0083
         };
-        // const center = {
-        //     lat: 50.0515918,
-        // };
+        const center = {
+            lat: 50.0515918,
+        };
         const handleMapChanged = () =>{
             getMapBounds()
             setMapCenterPoint()  
@@ -63,21 +55,12 @@ function Map() {
         }
         const setMapCenterPoint =() =>{
             this.setState({
-                lat: this.map.getCenter().lat(),
-                lng: this.map.getCenter().lng()
+                lat: 40.7077,
+                lng: 74.0083
+                // lat: this.map.getCenter().lat(),
+                // lng: this.map.getCenter().lng()
             })
         }
-        useEffect(() => {
-        const place = <PlaceMarker lat={50.0515918} lng={19.9357531} price={20} name={"Hotel"} description={"Hotel desc"} />
-            setPlaces([place])
-                fetch(`/api/places? lat=${state.lat}&lng=${state.lng}&zoom=${zoom}`,
-            { method: 'GET' })
-            .then((response) => response.json())
-            .then((response) => {
-                setPlaces(response)
-                console.log(response  + " i am get responce of places")
-            })
-        }, [])
 
         const getMapBounds = () => {
             var mapBounds = this.map.getBounds()
@@ -90,7 +73,7 @@ function Map() {
             this.yMapBounds.min = yMapBounds.f
             this.yMapBounds.max = yMapBounds.b
         }
-        console.log(places);
+        console.log(rentals);
         const {lat, lng} = state;
         console.log(lat, lng);
         return(
@@ -101,7 +84,7 @@ function Map() {
                     lat: lat,
                     lng: lng
                 }}
-                places={places}
+                places={rentals}
                 zoom={zoom}
                 containerElement={
                     <div style={{ height: `100%` }} />

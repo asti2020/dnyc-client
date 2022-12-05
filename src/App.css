@@ -114,8 +114,11 @@
     flex-wrap: wrap;
     justify-content: space-around;
     flex-direction: row;
-    width: auto;
+    width: 100%;
     height: auto;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 10vw;
     border-radius: 5px;
     background-color: lightblue;
   }
@@ -330,6 +333,8 @@ label{
 
 .placeOffers{
   color: #06b;
+  width: 30vw;
+  font-size: large;
   display: flex;
   flex-direction: column;
   font-family: arial;
@@ -441,7 +446,8 @@ align-items: left;
 
 .footerContainer{
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
   box-sizing: border-box;
   width: 100%;
   margin-top: 10px;
@@ -499,6 +505,10 @@ align-items: left;
   margin-right: 10px;
 }
 .rental-list{
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
  height: 100%;
  width: 100%;
  overflow-y: scroll;
@@ -582,6 +592,8 @@ input[placeholder="search"]{
   border: 1px solid #06b;
   padding: 1vw;
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  font-family: arial;
 }
 
 
@@ -597,3 +609,82 @@ input[placeholder="search"]{
   box-sizing: border-box;
 }
 
+.error{
+  display: block;
+  z-index: 1;
+  transform: translate(-0%, -50%);
+  background-color: red;
+  overflow: hidden;
+  height: 80px;
+  margin-top: 10px;
+}
+
+.errorMessage {
+  color: red;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid red;
+  padding: 1vw;
+}
+
+.rentalContainer .card{
+  width: 31vw;
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #06b;
+  padding: 1vw;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+.SaveMe{
+  position: relative;
+  z-index: 1;
+}
+.SaveMe button{
+  position: absolute;
+}
+.cardBook{
+ margin: 10px;
+ width: 25vw;
+}
+
+.card-body{
+  display: flex;
+  width: 30vw;
+  padding: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #06b;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  overflow: hidden;
+}
+
+.cardProfile{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profileListing{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.map{
+  width: 30vw;
+  height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid #06b;
+  
+}
