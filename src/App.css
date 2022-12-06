@@ -745,5 +745,35 @@ form .form{
   color: #fff;
 } */
 
+table{
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid #06b;
+}
+.table tr{
+  padding: 10px;
+  border: 1px solid #06b;
+  vertical-align: top;
+  text-align: left;
+  font-size: 14px;
+  color: black;
+}
+.table{
+  color: red;
+}
+.tableImage{
+  width: 30px;
+  height: 30px;
+}
+.but{
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #06b;
+  margin-right: 5px;
+  color: #06b;
 
-
+}

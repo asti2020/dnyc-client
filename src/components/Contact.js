@@ -8,8 +8,13 @@ function Contact({host}){
 
     const sendEmail = (e) => {
         e.preventDefault();
-    
-
+        emailjs.sendForm('service_ycvye2m', 'template_4i6bldl', form.current, 'aBDj5aIEBW6YsOaFE')
+        .then((result) => {
+            console.log(result)
+        }, (error) => {
+            console.log(error.text);
+        });
+            e.target.reset()
     };
     return (
         <>

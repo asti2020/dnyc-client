@@ -1,7 +1,10 @@
 import React from 'react'
+import {  MdDelete } from "react-icons/md";
 
 
-function SaveTable(){
+function SaveTable({rentals}){
+    console.log(rentals)
+    // console.log(myrentals + "i am myrentals")
     return (
         <>
 
@@ -15,28 +18,39 @@ function SaveTable(){
                         <th>Title</th>
                         <th>Price</th>
                         <th>Address</th>
-                        <th></th>
-                        <th></th>
-                        <th>Book</th>
                         <th>Remove</th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>View</td>
-                            <td>Title</td>
-                            <td>Price</td>
-                            <td>Address</td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button className="btn btn-primary" onClick={() => {}}>Book</button>
-                            </td>
-                            <td>
-                                <button className="btn btn-primary" onClick={() => {}}>Remove</button>
-                            </td>
-                        </tr>
+                        { rentals?.map((rental, index) => {
+                            return(
+                                <tr key={index}>
+                                <th scope="row">2</th>
+                                    <td> <img className="tableImage" src={rental.image} alt={rental.title}  /></td>
+                                    <td>A:{rental.title}</td>
+                                    <td>B:{rental.price}</td>
+                                    <td>C:{rental.address}</td>
+                                    <td>
+                                        <button className="but" onClick={() => {}}><MdDelete /></button>
+                                    </td>
+                            </tr>
+                         )} )} 
+                        {/* {rentals.map((rental, index) => {
+                            return(
+                                <tr key={index}>
+                                <th scope="row">2</th>
+                                    <td> <img src={rental.image} alt={rental.title}  /></td>
+                                    <td>A:{rental.title}</td>
+                                    <td>B:{rental.price}</td>
+                                    <td>C:{rental.address}</td>
+                                    <td>
+                                        <button className="btn btn-primary" onClick={() => {}}>Book</button>
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-primary" onClick={() => {}}>Remove</button>
+                                    </td>
+                            </tr>
+                        )} )} */}
                         </tbody>
                         <tfoot>
                             <tr>
