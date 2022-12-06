@@ -7,67 +7,66 @@ function Booking({rental}) {
     const [booking, setBooking] = useState('')
     const [name, setNameBook] = useState('')
     const [email, setEmailBook] = useState('')
-    const [startDate, setCheckIn] = useState('')
-    const [endDate, setCheckOut] = useState('')
-    const [Message, setMessage] = useState('')
+    const [date, setDateIn] = useState('')
+    const [message, setMessage] = useState('')
     const[time, setTime] = useState('')
     const jwt_token = localStorage.getItem('jwt');
     let rental_id  = id
     console.log( rental_id)
+    console.log(message, name + "i am message")
     const handleBookingSubmit = (e) => {
         e.preventDefault();
+
         if (rental.user_id !== localStorage.getItem('user_id')) {
-           
-        fetch("http://localhost:3000/bookings", {
-            method: 'POST',
-            headers: {
-                Authorization: "Bearer " + jwt_token,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                startDate: startDate,
-                endDate: endDate,
+                fetch("http://localhost:3000/bookings", {
+                    method: 'POST',
+                    headers: {
+                        Authorization: "Bearer " + jwt_token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        date: date,
+                        time: time,
+                        rental_id: rental_id,
+                        message: message
+                    })
+                })
+                .then(res => res.json())
+                .then(res => {
+                        console.log(res)
+                    if (res.status === "created") {
+                        setBooking(res)
+                        console.log(res+ "i am came from booking responce ok ")
+                    }
+                    else {
+                        setMessage(res.message + "i am came from booking responce not ok ")
+                    }
+                    setBooking('')
+                    setNameBook('')
+                    setEmailBook('')
+                    setTime('')
+                    setDateIn('')
+                    setMessage('')
             })
+            .catch(err => {
+                console.log(err + "i am came from booking responce error: ")
         })
-        .then(res => res.json())
-        .then(res => {
-                console.log(res)
-                if (res.status === "created") {
-                    setBooking(res)
-                    console.log(res+ "i am came from booking responce ok ")
-                }
-                else {
-                    setMessage(res.message + "i am came from booking responce not ok ")
-                }
-                setBooking('')
-                setNameBook('')
-                setEmailBook('')
-                setTime('')
-                setCheckIn('')
-                setCheckOut('')
-                setMessage('')
-        })
-       .catch(err => {
-            console.log(err + "i am came from booking responce error: ")
-       })
-    }else{
-        navigate('/login')
-        navigate('/')
-    }
+        }else{
+            navigate('/login')
+            navigate('/')
+        }
 
-    }
-
-
-        console.log(booking);
-        console.log(name);
+        }
+            console.log(booking + "i am booking");
+            console.log(name);
 
     return (
         <div>
             <form className='formBook' onSubmit={handleBookingSubmit}>
                 <div className="form-group">
-                    <label>Name</label>
+                    <label>Title</label>
                     <input 
                         type="text"
                         className="form-control"
@@ -80,17 +79,9 @@ function Booking({rental}) {
                         type="date" 
                         className="form-control" 
                         name="startDate"
-                        value={startDate}
-                        onChange={e => setCheckIn(e.target.value)}
+                        value={date}
+                        onChange={e => setDateIn(e.target.value)}
                     />
-                    <label>CheckOut Date</label>
-                    <input 
-                        type="date" 
-                        className="form-control" 
-                        name="endDate"
-                        value={endDate}
-                        onChange={e => setCheckOut(e.target.value)}
-                        />
                     <label>Time</label>
                     <input 
                         type="time" 
@@ -101,18 +92,18 @@ function Booking({rental}) {
                     />
                     <label>Email</label>
                     <input 
-                    type="email" 
-                    className="form-control" 
-                    name="email"
-                    value={email}
-                    onChange={e => setEmailBook(e.target.value)}
+                        type="email" 
+                        className="form-control" 
+                        name="email"
+                        value={email}
+                        onChange={e => setEmailBook(e.target.value)}
                     />
                     <label>Message</label>
                     <textarea 
-                    className="form-control" 
-                    name="message"
-                    value={Message}
-                    onChange={e => setMessage(e.target.value)}
+                        className="form-control" 
+                        name="message"
+                        value={message}
+                        onChange={e => setMessage(e.target.value)}
                     />
 
                     <button type="submit" className='submit'>Reserve</button>

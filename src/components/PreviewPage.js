@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import CalenderEve from './CalenderEve';
+// import CalenderEve from './CalenderEve';
 import Booking from './Booking';
+import ContactHost from './Contact';
 import Map from './Map';
+import { SiApachecassandra } from 'react-icons/si'
 
 function PreviewPage ({rentals}) {
 
@@ -18,29 +20,47 @@ function PreviewPage ({rentals}) {
         .then((data) => setPreview(data))
     }, []);
     console.log(preview)
+    console.log(preview.user + "i am user id")
     return (
         <>
             <div className='preview'>
                 <h3> {preview.address}</h3>
                 <div className="containerPrev">
-                    <div className="row">
+                    {/* <div className="row">
                         <div className="col-12, rentprev">
                             <h3>{preview.title}  {preview.features}</h3>
-                            {/* <h3>{rentals[params.rentalID].title}</h3> */}
                             <h5>  {"4.7"} *  Review</h5>
                             <h5>Famous area:{preview.location}</h5>
                         </div>
-                    </div>
-                <div className="containerPrev">
-                    <img src={preview.image} alt={preview.title} />
-                    <div className='rentprev'>
-                        <h4> {preview.category} hosted by {}</h4>
-                        <p>Best for : {preview.Best_for} </p>
-                    </div>
+                    </div> */}
+                    <div className="bookit">
+                        <div className='containerPrev'>
+                        <div className="row">
+                            <div className="col-12, rentprev">
+                                <h3>{preview.title}  {preview.features}</h3>
+                                {/* <h3>{rentals[params.rentalID].title}</h3> */}
+                                <h5>  {"4.7"} *  Review</h5>
+                                <h5>Famous area:{preview.location}</h5>
+                            </div>
+                        </div>
+                            <img className='previewImage' src={preview.image} alt={preview.title} />
+                            <div className='rentprev'>
+                                <h4> {preview.category} hosted by {}</h4>
+                                <p>Best for : {preview.Best_for} </p>
+                            </div>
+                            {/* <div className='rentprev'>
+                                <h4> N: {preview.note} </h4>
+                                <p>D :{preview.description}</p>
 
-                </div> 
+                            </div> */}
+                        </div>
+                        <div className='booking'>
+                                <h3>Wann a Book??</h3> 
+                                <Booking  rental={rentals}/>
+                            </div>
+                    </div> 
             </div>
-            <div>
+            <div className='plcall'>
                 <h3 className='rentprev'>What this place offers!!</h3>
                 <div className='placeOffers'>
                         <label className='prevp'>${preview.price}/M</label> 
@@ -52,25 +72,28 @@ function PreviewPage ({rentals}) {
                 </div>
             </div>
                 <div>
-                <h3 className='rentprev'>Calendy avilable</h3>
+                {/* <h3 className='rentprev'>Calendy avilable</h3> */}
                     <div className='bokkit'>
-                        <div className='calendy'>
+                        {/* <div className='calendy'>
                             <CalenderEve />
-                        </div>
-                        <div className='booking'>
+                        </div> */}
+                        {/* <div className='booking'>
                             <h3>Wann a Book??</h3> 
                             <Booking  rental={rentals}/>
+                        </div> */}
+                    </div>
+                    <div className="mapprev">
+                        <div className='map'>
+                            {/* <button className="sbutton" >
+                                <SiApachecassandra /></button> */}
+                            <Map className="changeMap" rentals={rentals}/>
                         </div>
                     </div>
-                    <div className='map'>
-                        <h3>Map:Where you wanna live??</h3>
-                        <Map rentals={rentals}/>
-                    </div>
-                    <div className='booking'>
-                        <h3>Reviews</h3> 
-                    </div>
+                    <div className='cocH'>
+                            <h3>Contact Host</h3> 
+                        </div>
                     <div className='calendy'>
-                        <h3> Contact Host</h3>
+                        <h3> Review</h3>
                     </div>
                 </div>
             </div>

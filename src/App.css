@@ -289,20 +289,20 @@ p{
   background-color: white;
   color: #eee;
   padding: 15px;
-  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 .containerPrev{
   display: flex;
   flex-direction: column;
   margin: 3vw;
-  width: 100%;
+  /* width: 100%;
   height: auto;
   justify-content: flex-start;
   font-family: arial;
-  color: #eee;
+  color: #eee; */
 }
 .containerPrev img{
-  width: 50vw;
+  width: 35vw;
   height: auto;
   border-radius: 5px;
   border: 0;
@@ -679,12 +679,71 @@ input[placeholder="search"]{
 }
 
 .map{
-  width: 30vw;
+  width: 90%;
+  height: 90%;
+  /* border-radius: 5px;
+  border: 1px solid #06b;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid #06b; */
+}
+.containerRent{
+  margin-top: 15px;
+}
+
+.sbutton{
+  position: absolute;
+  /* top: 10px;
+  right: 10px; */
+  color: #06b;
+font-weight: bold;
+  font-size: 50px;
+  padding: 10px;
+}
+.bookit{
+  display: flex;
+  overflow: hidden;
+  justify-content: space-around;
+}
+.previewImage{
+  width: 80%;
   height: 100%;
+  object-fit: cover;
+  overflow: hidden;
   margin-top: 10px;
   margin-bottom: 10px;
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   border: 1px solid #06b;
-  
 }
+
+.plcall{
+  position: relative;
+  margin-top: -70px;
+}
+
+form .form{
+  width: 10vw;
+}
+.mapprev{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  margin-right: 50px;
+}
+/* .btnclick{
+  background-color: #06b;
+  color: #fff;
+} */
+
+
+

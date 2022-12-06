@@ -1,18 +1,19 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function Footer() {
+    const navigate = useNavigate()
   return (
     <>
         <div className='myFoot'>
             <div className="footerContainer">
                 <div className="footerRight">
                     <ul>
-                        <h3>Support</h3>
-                        <li>Help Center</li>
-                        <li>AirCover</li>
+                        <h3 onClick={e => navigate('/contacuUs')}>Support</h3>
+                        <li onClick={e => navigate('/contacuUs')}>Help Center</li>
                         <li>Cancelation Option</li>
                         <li> COVID'19 Responce</li>
-                        <li>Report Naberhood concern</li>
+                        <li onClick={e => navigate('/contacuUs')}>Report Naberhood concern</li>
                     </ul>
                 </div>
                 <div className="footerMid">
@@ -24,8 +25,7 @@ function Footer() {
                 <div className="footerLeft">
                         <ul>
                             <h3>Discover</h3>
-                            <li>Contact</li>
-                            <li>About</li>
+                            <li onClick={e => navigate('/contacuUs')}>Contact Us</li>
                             <li>Privacy Policy</li>
                             <li>Terms of Use</li>
                         </ul>

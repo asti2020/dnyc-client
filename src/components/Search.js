@@ -20,14 +20,15 @@ function Search({setSearch, search}){
                 <button onClick={handleClickAdd}>Sale</button>
             </div>
             <div className="search__input">
+
                 <input
                     type="text"
-                    placeholder="Search"
+                    placeholder= "Search"
                     value={search}
                     className="searchinput"
                     onChange={(e) => setSearch(e.target.value)}
                 />
-                <i className="search__input__icon search__input__icon--search" />
+                
             </div>
             <div className="filtreRadioButton">
                 <div className="filtre">

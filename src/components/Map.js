@@ -2,9 +2,7 @@
 import { withGoogleMap, GoogleMap } from "react-google-maps"
 import PlaceMarker from './PlaceMarker';
 
-
 function Map({rentals}) {
-
     const AirbnbMap = withGoogleMap(props => (
         <GoogleMap
             defaultCenter={{ lat: 40.76727216, lng: -73.99392888 }}
@@ -25,28 +23,22 @@ function Map({rentals}) {
                 ></PlaceMarker>
             ))
             }
-{/* // have to change every numbers in placeMarker to place.lat, place.lng, place.name, place.description, place.price */}
         </GoogleMap>
         )
         );
-        const zoom = 9;
+        const zoom = 11;
     
         const state = {
             lat: 40.7077,
             lng: 74.0083
-        };
-        const center = {
-            lat: 50.0515918,
         };
         const handleMapChanged = () =>{
             getMapBounds()
             setMapCenterPoint()  
         }
         const handleMapMounted =(map)  => {
-            // setMapBounds(map.getBounds());
             map = map;
         }
-     
         const handleMapFullyLoaded =() =>{
             if (this.mapFullyLoaded)
                 return
@@ -55,13 +47,10 @@ function Map({rentals}) {
         }
         const setMapCenterPoint =() =>{
             this.setState({
-                lat: 40.7077,
-                lng: 74.0083
-                // lat: this.map.getCenter().lat(),
-                // lng: this.map.getCenter().lng()
+                lat: this.map.getCenter().lat(),
+                lng: this.map.getCenter().lng()
             })
         }
-
         const getMapBounds = () => {
             var mapBounds = this.map.getBounds()
             var xMapBounds = mapBounds.b
@@ -78,7 +67,7 @@ function Map({rentals}) {
         console.log(lat, lng);
         return(
             <>
-            <div style={{width: `750px`, height: `750px`}}>
+            <div style={{width: `90vw`, height: `40vw`}}>
             <AirbnbMap
                 center={{
                     lat: lat,
@@ -100,6 +89,5 @@ function Map({rentals}) {
         </>
         );
     }
-            
 
 export default Map;

@@ -15,6 +15,7 @@ import Save from './Save';
 import Footer from './Footer';
 import ErrorRoute from './ErrorRoute';
 import Map from './Map.js';
+import Contact from './Contact';
 
 function App() {
   const [user , setUser] = useState({});
@@ -77,6 +78,7 @@ console.log(match + " i am match console")
         <Route path="/save" element={<Save rental={rentals} />} />
         <Route path="*" element={<ErrorRoute />} />
         <Route path="/map" element={<Map  rentals={rentals}/>} />
+        <Route path="/contacuUs" element={<Contact />} />
       </Routes>
       <Footer />
     </div>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import UserRental from './UserRental'
 import BookingListing from './BookingListing'
 import ProfileRentalCard from './ProfileRentalCard'
+import { SiApachecassandra } from 'react-icons/si'
 
 
 function Profile({user, handleDeleteItem}) {
@@ -22,9 +23,11 @@ function Profile({user, handleDeleteItem}) {
                 return  (
                 <>
                     <div className="profileContainer">
+                    <button className="sbutton" >
+                    <SiApachecassandra /></button>
                         <div className="profile">
-                            <h3> Hello {user.first_name}! </h3>
-                            <h5> add a profile picture</h5>
+                            {/* <h3> Hello {user.first_name}! </h3>
+                            <h5> add a profile picture</h5> */}
                             {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
                             <div>
                             {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
@@ -44,6 +47,10 @@ function Profile({user, handleDeleteItem}) {
                                             Booked items!!
                                         </h3>
                                         <BookingListing />
+                                </div>
+                                <div>
+                                        <h3 className="bookingHead">Request for your rental</h3>
+                                        
                                 </div>
                         </div>
                     

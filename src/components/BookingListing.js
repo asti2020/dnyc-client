@@ -10,7 +10,6 @@ function Booking(){
             headers: {
                 Authorization: "Bearer " + jwt_token,
                 'Content-Type': 'application/json'
-                // 'Accept': 'application/json'
             }
         })
         .then(res => res.json())
@@ -19,9 +18,7 @@ function Booking(){
             setBooked(data)
         })
     }, [])
-
     console.log(booked + "i am came from booked list")
-
     return(
         <>
             <div className='bookinglistdiv'>

@@ -1,17 +1,19 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaRegHeart } from "react-icons/fa";
+import {AiFillHeart} from "react-icons/ai";
 
 
 function RentalList({rental}){
+    const [isSaved, setIsSaved] = useState(false)
 console.log(rental)
     return (
         <div className="containerRent">
             <div className="card">
             <Link to={`/rentals/${rental.id}`}><h3>{rental.title}</h3></Link>
             <div className='SaveMe'>
-                <button className='btn' onClick={() => {} }><FaRegHeart /></button>
+                { isSaved ? <button className='btn' onClick={() => setIsSaved(false)}><AiFillHeart /></button> : <button className='btnclick' onClick={() => setIsSaved(true)}><FaRegHeart/></button>}
 
             </div>
             <Link to={`/rentals/${rental.id}`}> <img src={rental.image} alt={rental.title}  /> </Link>
