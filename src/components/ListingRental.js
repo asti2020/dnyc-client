@@ -134,11 +134,12 @@ function ListingRental ({newRental}){
                 <div className="form-group">
                     <label>Address</label>
                     <input
-                        type="text"
+                        type="address"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                         className="form-control"
-                        placeholder="Enter listing_date"
+                        placeholder="Address"
+                        required
                     />
                 </div>
                 <div className="form-group">

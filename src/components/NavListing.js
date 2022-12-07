@@ -1,12 +1,17 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 
 
-function NavListing(){
+function NavListing({user}){
+    const token = localStorage.getItem('jwt')
+
     return (
         <>
             <div className='navListhead'>
-                <NavLink to="/"><div className="log"> <h2 className='logo'> DNYCR </h2></div></NavLink>
+                <Link to="/"><div className="log"> <h2 className='logo'> DNYCR </h2></div></Link>
+                {token ? <NavLink to="/Profile"><button>Profile</button></NavLink> : null}
+                {token ? <NavLink to="/Save"><button>Save</button></NavLink> : null}
+
                     <nav>
                         <ul className='nabBar'>
 
@@ -27,8 +32,8 @@ function NavListing(){
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="About">
-                                    <button>About</button>                         
+                                <NavLink to="contactUs">
+                                    <button>Contact</button>                         
                                 </NavLink>
                             </li>
                             <li>
@@ -41,6 +46,7 @@ function NavListing(){
             </div>
     
         </>
+
     );
 }
 

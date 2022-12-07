@@ -67,7 +67,7 @@ function Map({rentals}) {
         console.log(lat, lng);
         return(
             <>
-            <div style={{width: `90vw`, height: `40vw`}}>
+            <div style={{width: `100vw`, height: `60vw`}}>
             <AirbnbMap
                 center={{
                     lat: lat,

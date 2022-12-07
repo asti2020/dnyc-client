@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 // import CalenderEve from './CalenderEve';
 import Booking from './Booking';
-import ContactHost from './Contact';
-import Map from './Map';
-import { SiApachecassandra } from 'react-icons/si'
+// import ContactHost from './Contact';
+// import Map from './Map';
+// import { SiApachecassandra } from 'react-icons/si'
 
 function PreviewPage ({rentals}) {
 
@@ -20,7 +20,7 @@ function PreviewPage ({rentals}) {
         .then((data) => setPreview(data))
     }, []);
     console.log(preview)
-    console.log(preview.user + "i am user id")
+    console.log(preview.user_id+ "i am user id")
     return (
         <>
             <div className='preview'>
@@ -82,13 +82,13 @@ function PreviewPage ({rentals}) {
                             <Booking  rental={rentals}/>
                         </div> */}
                     </div>
-                    <div className="mapprev">
+                    {/* <div className="mapprev">
                         <div className='map'>
                             {/* <button className="sbutton" >
                                 <SiApachecassandra /></button> */}
-                            <Map className="changeMap" rentals={rentals}/>
+                            {/* <Map className="changeMap" rentals={rentals}/>
                         </div>
-                    </div>
+                    </div>  */}
                     <div className='cocH'>
                             <h3>Contact Host</h3> 
                         </div>

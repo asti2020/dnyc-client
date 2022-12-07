@@ -11,8 +11,10 @@ function RentalList({rental}){
 
     const handleSaveClick = (e) => {
         e.preventDefault();
-        setIsSaved(!isSaved)
-
+        setIsSaved(true)
+        if (isSaved) {
+            return
+        }
         fetch("http://localhost:3000/save_rentals", {
             method: "POST",
             headers: {
@@ -22,16 +24,14 @@ function RentalList({rental}){
             body: JSON.stringify({
                 rental: rental,
                 rental_id: rental.id,
-
-
             })
-
         })
-           .then(res => res.json())
-           .then(data => {
-               console.log(data)
-           }    
-              )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setIsSaved(true)
+            }    
+            )
     }
 console.log(rental)
     return (

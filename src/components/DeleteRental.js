@@ -1,8 +1,17 @@
 import React from 'react'
-const jwt_token = localStorage.getItem('jwt');
-export const DeleteRental = ({rental, handleDeleteItem}) => {
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+// import { useState } from 'react'
+
+export const DeleteRental = ({rental, rentals, setDeleteRental}) => {
+    const jwt_token = localStorage.getItem('jwt');
+    const navigate = useNavigate()
+    
     const deleteRental = (e) => {
             e.preventDefault()
+        setDeleteRental(rental)
+
         fetch(`http://localhost:3000/rentals/${rental.id}`, {
             method: "DELETE",
             headers: {
@@ -11,19 +20,12 @@ export const DeleteRental = ({rental, handleDeleteItem}) => {
                 "Content-Type": "application/json"
             },
         })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data)
-            handleDeleteItem(rental)
-            if (data.error) {
-                console.log(data.error)
-            }
-        })
-    }
+            // navigate('/thankyou')
+            // window.location.reload()
+        }
     return (
     <div>
         <button className="deletebtn" onClick={deleteRental}>Delete</button>
     </div>
-
     )
 }

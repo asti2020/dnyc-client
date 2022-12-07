@@ -14,9 +14,9 @@ function Login({setUsers}) {
             <div>
                 <LoginForm />
             </div>
-            <div >
+            {/* <div >
                 <SignupForm setUsers={setUsers}/>
-            </div>
+            </div> */}
 
         </div>
         <div>

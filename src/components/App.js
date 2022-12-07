@@ -10,17 +10,16 @@ import ListingRental from './ListingRental';
 import Profile from './Profile';
 import UpdateRental from './UpdateRental';
 import PreviewPage from './PreviewPage';
-import  CalenderEve  from './CalenderEve';
 import Save from './Save';
 import Footer from './Footer';
 import ErrorRoute from './ErrorRoute';
 import Map from './Map.js';
 import Contact from './Contact';
+import ThankYou from './ThankYou';
 
 function App() {
   const [user , setUser] = useState({});
   const jwt_token = localStorage.getItem('jwt');
-  // console.log(jwt_token);
   useEffect(() => {
     fetch('http://localhost:3000/me',{
       method: 'GET',
@@ -34,31 +33,45 @@ function App() {
       // console.log(user + "i am inside the me ");
       setUser(dbuser);
     });
-  }, [jwt_token]);
+  }, []);
   // console.log(user.first_name + "i am outside the me ");
 
   const [rentals, setRentals] = useState([]);
+
+
   useEffect(() => {
       fetch("http://localhost:3000/rentals")
       .then((res) => res.json())
-      .then((data) => setRentals(data))
-  }, [])
+      .then((data) => {
+        console.table(data)
+        setRentals(data);
+      })
+  }, []);
   
 function newRental(newRental) {
   setRentals([...rentals, newRental])
-  console.log(newRental + "nputa")
 }
-function handleDeleteItem(deletedItem) {
-  const updatedItems = rentals.filter((item) => item.id !== deletedItem.id);
-  setRentals(updatedItems);
-} 
+
+
+
+
+const handleUpdateRental = (updatedRental) => {
+  const updatedRentals = rentals.map((rental) => {
+    if (rental.id === updatedRental.id) {
+      return updatedRental;
+    } else {
+      return rental;
+    }
+  });
+  setRentals(updatedRentals);
+}
 
 const[search, setSearch] = useState('');
-// const filtredRentals = rentals
+// const filtredRentals = rentals.filter((rental) => {
+//   return rental.title.toLowerCase().includes(search.toLowerCase());
+// })
 
-const filtredRentals = rentals.filter((rental) => {
-  return rental.title.toLowerCase().includes(search.toLowerCase());
-})
+console.log(rentals.user_id)
 
 const match = useMatch("/rentals/:id");
 console.log(match + " i am match console")
@@ -69,16 +82,17 @@ console.log(match + " i am match console")
       <Routes>
         <Route path="*" element={<ErrorRoute />} />
         <Route path="/login" element={<Login setUsers={setUser}/>} />
-        <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={filtredRentals} />} />
+        <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={rentals } />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
-        <Route path="/profile" element={<Profile handleDeleteItem={handleDeleteItem} user={user} rental={rentals} />} />
-        <Route path="/rental/:id/edit" element={<UpdateRental rental={rentals}user={user} />} />
+        <Route path="/profile" element={<Profile  user={user} setRentals={setRentals} rentals={rentals}  />} />
+        <Route path="/rental/:id/edit" element={<UpdateRental handleUpdateRental={handleUpdateRental} rental={rentals}user={user} />} />
         <Route path='/rentals/:id'element={<PreviewPage rentals={rentals} user={user} />} />
-        <Route path="/cal" element={<CalenderEve user={user} />} />
         <Route path="/save" element={<Save rental={rentals} />} />
         <Route path="*" element={<ErrorRoute />} />
         <Route path="/map" element={<Map  rentals={rentals}/>} />
-        <Route path="/contacuUs" element={<Contact />} />
+        <Route path="/contactUs" element={<Contact />} />
+        <Route path="/thankYou" element={<ThankYou />} />
+        <Route path="/rentals" element={<ListingRental  rentals={rentals}/>} />
       </Routes>
       <Footer />
     </div>

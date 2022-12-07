@@ -4,6 +4,9 @@ import { useState } from 'react'
 function Booking(){
     const [booked, setBooked] = useState([])
         const jwt_token = localStorage.getItem('jwt')
+        const user_id = localStorage.getItem('user_id')
+
+        
     useEffect(() =>{
         fetch('http://localhost:3000/bookings',{
             method: 'GET',
@@ -26,11 +29,9 @@ function Booking(){
                     {booked.map((myBook) => ( 
                         <div className='cardBookingOut'>
                             <div className='cardBook'>
-                                <h3>{myBook.name}</h3>
-                                <h4>{myBook.description}</h4>
-                                <h4>{myBook.message}</h4>
-                                <h4>Start and end date!</h4>
-                                <p>Thank You!</p>
+                                <h3>{myBook.date}</h3>
+                                <h4>{myBook.rental.description}</h4>
+                                <h4>{myBook.rental.title}</h4>
                             </div>
                         </div>
                 ))}
@@ -38,6 +39,7 @@ function Booking(){
             </div>
         </>
     )
-}
+                    }
+
 
 export default Booking

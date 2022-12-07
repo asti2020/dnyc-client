@@ -41,7 +41,7 @@ function UpdateRental({rental, handleUpdateRental}) {
         .then(updatedRental => {
             console.log(updatedRental)
             setFormData(updatedRental)
-            // handleUpdateRental(updatedRental)
+             handleUpdateRental(updatedRental)
             (navigate(`/rentals/${rental.id}`))
         }
         )

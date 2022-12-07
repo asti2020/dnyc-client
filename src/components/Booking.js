@@ -11,13 +11,14 @@ function Booking({rental}) {
     const [message, setMessage] = useState('')
     const[time, setTime] = useState('')
     const jwt_token = localStorage.getItem('jwt');
+    const user_id = localStorage.getItem('user_id')
     let rental_id  = id
     console.log( rental_id)
     console.log(message, name + "i am message")
     const handleBookingSubmit = (e) => {
         e.preventDefault();
 
-        if (rental.user_id !== localStorage.getItem('user_id')) {
+        if (rental.user_id !== localStorage.getItem('user_id') && user_id !== booking.user_id) {
                 fetch("http://localhost:3000/bookings", {
                     method: 'POST',
                     headers: {

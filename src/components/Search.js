@@ -17,7 +17,7 @@ function Search({setSearch, search}){
     return (
         <div className="search">
             <div className="addRental">
-                <button onClick={handleClickAdd}>Sale</button>
+                <button  className='salebutt' onClick={handleClickAdd}>Sale</button>
             </div>
             <div className="search__input">
 
@@ -30,7 +30,7 @@ function Search({setSearch, search}){
                 />
                 
             </div>
-            <div className="filtreRadioButton">
+            {/* <div className="filtreRadioButton">
                 <div className="filtre">
                     <div className="filtre__input">
                         <label className="filtre__input__label">Apartment
@@ -51,7 +51,7 @@ function Search({setSearch, search}){
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,15 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import UserRental from './UserRental'
 import BookingListing from './BookingListing'
 import ProfileRentalCard from './ProfileRentalCard'
-import { SiApachecassandra } from 'react-icons/si'
 
-
-function Profile({user, handleDeleteItem}) {
+function Profile({ user, rentals, setRentals}) {
     const [avatar, setAvatar] = useState('')
+    const [myRentals, setMyRentals] = useState([])
+    const token = localStorage.getItem('jwt')
     console.log(user.email + " i am user rentals")
     const navigate = useNavigate()
+
+    const setDeleteRentals = (rental) => {
+        setMyRentals(myRentals.filter(r => r.id !== rental.id))
+        setRentals(rentals.filter((r) => r.id !== rental.id))
+    }
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/rentalsuser`, {
+            method: 'GET',
+            headers: {
+                Authorization: "Bearer " + token,
+                'Content-Type': 'application/json'
+        }})
+            .then(res => res.json())
+            .then(data => {
+                console.table(data)
+                setMyRentals(data)
+            })
+    }, [])
 
     function onImageChange(e) {
         setAvatar(e.target.value)
@@ -23,12 +41,7 @@ function Profile({user, handleDeleteItem}) {
                 return  (
                 <>
                     <div className="profileContainer">
-                    <button className="sbutton" >
-                    <SiApachecassandra /></button>
                         <div className="profile">
-                            {/* <h3> Hello {user.first_name}! </h3>
-                            <h5> add a profile picture</h5> */}
-                            {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
                             <div>
                             {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
                                 <form className="avatar" onSubmit={handleSubmit}>
@@ -40,17 +53,13 @@ function Profile({user, handleDeleteItem}) {
                         <div className="profileListing">
                                 <div>
                                     <h3> Your Listing Rentals  </h3>
-                                    <ProfileRentalCard user={user} handleDeleteItem={handleDeleteItem} rentals={user.rentals} />
+                                    <ProfileRentalCard user={user} setDeleteRental={setDeleteRentals}  myRentals={myRentals} rentals={rentals} />
                                 </div>
                                 <div>
-                                        <h3 className="bookingHead">
+                                    <h3 className="bookingHead">
                                             Booked items!!
-                                        </h3>
+                                    </h3>
                                         <BookingListing />
-                                </div>
-                                <div>
-                                        <h3 className="bookingHead">Request for your rental</h3>
-                                        
                                 </div>
                         </div>
                     
@@ -62,6 +71,7 @@ function Profile({user, handleDeleteItem}) {
         return 
     }
 }
+
             
 export default Profile
 
