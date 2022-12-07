@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom'
 import { useParams } from "react-router-dom";
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
 function Search({setSearch, search}){
     const jwt_token = localStorage.getItem('jwt');
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Search({setSearch, search}){
     return (
         <div className="search">
             <div className="addRental">
-                <button  className='salebutt' onClick={handleClickAdd}>Sale</button>
+                <button  className='addButt' onClick={handleClickAdd}><AiOutlineAppstoreAdd /></button>
             </div>
             <div className="search__input">
 

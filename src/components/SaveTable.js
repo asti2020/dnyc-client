@@ -7,7 +7,6 @@ function SaveTable({rentals, handleDelet}){
     console.log(rentals)
     const navigate = useNavigate()
 
-
     return (
         <>
         <div className="saveTable">
@@ -41,7 +40,6 @@ function SaveTable({rentals, handleDelet}){
                                                 headers: {
                                                     Authorization: "Bearer " + jwt_token,
                                                     'Content-Type': 'application/json'
-                                                    
                                                 }})
                                             }  
                                         }

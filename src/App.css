@@ -811,8 +811,9 @@ table{
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.salebutt{
+.addButt{
   color: #06b;
+  font-size: 30px
 }
 .container{
   margin-top: -30px;

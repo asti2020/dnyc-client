@@ -16,6 +16,7 @@ import ErrorRoute from './ErrorRoute';
 import Map from './Map.js';
 import Contact from './Contact';
 import ThankYou from './ThankYou';
+import SignupForm from './SignupForm';
 
 function App() {
   const [user , setUser] = useState({});
@@ -81,6 +82,7 @@ console.log(match + " i am match console")
       <NavListing user={user} />
       <Routes>
         <Route path="*" element={<ErrorRoute />} />
+        <Route path="/up" element={<SignupForm setUsers={setUser}/>} />
         <Route path="/login" element={<Login setUsers={setUser}/>} />
         <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={rentals } />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
@@ -98,4 +100,5 @@ console.log(match + " i am match console")
     </div>
   );
   }
+
 export default App;

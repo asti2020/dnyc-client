@@ -1,45 +1,55 @@
 import React from 'react'
-import {NavLink, Link} from 'react-router-dom';
-
+import { Link} from 'react-router-dom';
+import { CgProfile } from "react-icons/cg";
+import {FiHeart} from 'react-icons/fi'
+import { SiMinutemailer } from "react-icons/si";
+import { SlLogin } from "react-icons/sl";
 
 function NavListing({user}){
     const token = localStorage.getItem('jwt')
-
     return (
         <>
             <div className='navListhead'>
                 <Link to="/"><div className="log"> <h2 className='logo'> DNYCR </h2></div></Link>
-                {token ? <NavLink to="/Profile"><button>Profile</button></NavLink> : null}
-                {token ? <NavLink to="/Save"><button>Save</button></NavLink> : null}
-
                     <nav>
                         <ul className='nabBar'>
-
                             <li>
-                                <NavLink to="/" className="log">
+                                <Link to="/" className="log">
                                     <div className="log"> <h2 className='logo'> DNYCR </h2
                                     ></div>
-                                </NavLink>
+                                </Link>
                             </li>
                             <li>
-                                <NavLink to="Profile" >
-                                    <button>Profile</button>
-                                </NavLink>
+                                {
+                                token ?
+                                    <Link to="Profile" >
+                                        <button>< CgProfile/></button>
+                                    </Link>
+                                        : 
+                                    <Link to="up">
+                                        <button> Signup</button>
+                                    </Link>  
+                                }
+                            </li> 
+                            <li>
+                                <Link to="Save">
+                                    <button>< FiHeart/></button>                          
+                                </Link>
                             </li>
                             <li>
-                                <NavLink to="Save">
-                                    <button>Save</button>                          
-                                </NavLink>
+                                <Link to="contactUs">
+                                    <button>< SiMinutemailer/></button>                         
+                                </Link>
                             </li>
                             <li>
-                                <NavLink to="contactUs">
-                                    <button>Contact</button>                         
-                                </NavLink>
+                                <Link to="login">
+                                    <button><SlLogin/></button>                          
+                                </Link>
                             </li>
                             <li>
-                                <NavLink to="login">
-                                    <button>In</button>                          
-                                </NavLink>
+                            {
+                            token ? <Link to="/logout"><button>Out</button></Link> : null
+                            }
                             </li>
                         </ul>
                     </nav>
