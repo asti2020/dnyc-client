@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function LoginForm({setUsers}) {
+
+    const navigate = useNavigate()
     const [userEmail, setEmail] = useState('');
     const [userPassword, setPassword] = useState('');
 
@@ -26,9 +29,14 @@ function LoginForm({setUsers}) {
                 .then(user => {
                     localStorage.setItem("jwt", user.token);
                     console.log(user);
+
                 })
                     }
         })
+    }
+
+    const handleLogandNav = (e) =>{
+            navigate('/Profile')
     }
     return (
         <>
@@ -51,7 +59,7 @@ function LoginForm({setUsers}) {
                     value={userPassword} 
                     onChange = {(e) => setPassword(e.target.value)}
                 />
-                <button  className='submit' type="submit">Login</button>
+                <button onClick={handleLogandNav} className='submit' type="submit">Login</button>
             </form>
         </div>
 
