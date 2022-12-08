@@ -8,6 +8,7 @@ function SignupForm({setUsers}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [birth_date, setBirthDate] = useState('')
+    // const jwt_token = localStorage.getItem('jwt');
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,20 +17,22 @@ function SignupForm({setUsers}) {
             headers: {
                 'Content-Type': 'application/json'
             }, body: JSON.stringify({
-                first_name,
-                last_name,
-                email,
-                password,
-                birth_date
+                first_name: first_name,
+                last_name: last_name,
+                email: email,
+                password: password,
+                birth_date: birth_date,
+                jwt_token: localStorage.getItem('jwt')
             })
+        })
             .then((res) => res.json())
             .then((res) => {
                 setUsers(res)
                 console.log(res)
             })
-
-
-        })
+           .catch((err) => {
+                console.log(err)
+            })
         setFirstName('')
         setLastName('')
         setEmail('')
@@ -38,6 +41,7 @@ function SignupForm({setUsers}) {
     }
 
     return (
+        <div className='logPlace'>
         <div className="form-group">
             <h1 className="signupFormH">SignUp</h1>
             <form  className= "form" onSubmit={handleSubmit}>
@@ -84,6 +88,7 @@ function SignupForm({setUsers}) {
                         />
                         <button className="submit" type="submit">Sign up</button>
             </form>
+        </div>
         </div>
     )
 }

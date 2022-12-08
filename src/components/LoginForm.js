@@ -29,14 +29,21 @@ function LoginForm({setUsers}) {
                 .then(user => {
                     localStorage.setItem("jwt", user.token);
                     console.log(user);
+                    // setUsers(user)
 
-                })
+                }
+                
+                )
+
+
                     }
         })
     }
+    const onClick = () => {
 
-    const handleLogandNav = (e) =>{
-            navigate('/Profile')
+if (localStorage.getItem('jwt')) {
+    navigate('/')
+}
     }
     return (
         <>
@@ -59,7 +66,7 @@ function LoginForm({setUsers}) {
                     value={userPassword} 
                     onChange = {(e) => setPassword(e.target.value)}
                 />
-                <button onClick={handleLogandNav} className='submit' type="submit">Login</button>
+                <button onClick={onClick} className='submit' type="submit">Login</button>
             </form>
         </div>
 

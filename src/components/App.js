@@ -17,6 +17,8 @@ import Map from './Map.js';
 import Contact from './Contact';
 import ThankYou from './ThankYou';
 import SignupForm from './SignupForm';
+import  Rental from './Rental';
+import PlaceInfoWindow from './PlaceInfoWindow';
 
 function App() {
   const [user , setUser] = useState({});
@@ -68,9 +70,9 @@ const handleUpdateRental = (updatedRental) => {
 }
 
 const[search, setSearch] = useState('');
-// const filtredRentals = rentals.filter((rental) => {
-//   return rental.title.toLowerCase().includes(search.toLowerCase());
-// })
+const filtredRentals = rentals.filter((rental) => {
+  return rental.title.toLowerCase().includes(search.toLowerCase());
+})
 
 console.log(rentals.user_id)
 
@@ -84,17 +86,15 @@ console.log(match + " i am match console")
         <Route path="*" element={<ErrorRoute />} />
         <Route path="/up" element={<SignupForm setUsers={setUser}/>} />
         <Route path="/login" element={<Login setUsers={setUser}/>} />
-        <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={rentals } />} />
+        <Route path="/" element={<Home search={search} setSearch={setSearch} rentals={filtredRentals } />} />
         <Route path="/add" element={<ListingRental newRental={newRental} />} />
         <Route path="/profile" element={<Profile  user={user} setRentals={setRentals} rentals={rentals}  />} />
         <Route path="/rental/:id/edit" element={<UpdateRental handleUpdateRental={handleUpdateRental} rental={rentals}user={user} />} />
         <Route path='/rentals/:id'element={<PreviewPage rentals={rentals} user={user} />} />
         <Route path="/save" element={<Save rental={rentals} />} />
-        <Route path="*" element={<ErrorRoute />} />
         <Route path="/map" element={<Map  rentals={rentals}/>} />
         <Route path="/contactUs" element={<Contact />} />
         <Route path="/thankYou" element={<ThankYou />} />
-        <Route path="/rentals" element={<ListingRental  rentals={rentals}/>} />
       </Routes>
       <Footer />
     </div>

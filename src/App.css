@@ -274,7 +274,8 @@ p{
   border-radius: 5px;
   text-align: bottom;
   font-family: arial;
-  background-color: #2F3C7E;
+  background-image: linear-gradient(to right, #2F3C7E, #FBEAEB);
+  /* background-color: #2F3C7E; */
   color: #eee;
   padding: 15px;
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
@@ -433,24 +434,31 @@ flex-wrap: wrap;
 }
 
 .logo{
-  /* margin-right: 10px; */
   color: #eee;
-  margin-right: 35vw;
-  text-align: center;
+  margin-right: 80vw;
   text-indent: 2px;
 }
 .log{
-align-items: left;
+text-indent: 2px;
+margin-right: 85%;
 }
 
 
 .footerContainer{
+  bottom: 0;
   display: flex;
+  vertical-align: bottom;
   flex-wrap: wrap;
   justify-content: space-around;
   box-sizing: border-box;
   width: 100%;
-  margin-top: 10px;
+  align-items: baseline;
+  /* padding: 10px; */
+  /* margin-top: 10px; */
+
+  /* position: absolute; */
+  background-image: linear-gradient(to bottom, #fff, #ccc);
+
 }
 
 .footer{
@@ -465,12 +473,14 @@ align-items: left;
   font-size: 14px;
   color: #999;
   font-weight: bold;
-  padding: 10px;
+  /* padding: 10px; */
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   background-color: #f5f5f5;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: 14px;
+  /* display: block; */
+  /* position: absolute; */
 }
 
 .myFoot li{
@@ -822,5 +832,41 @@ table{
   width: 100%;
   height: 100%;
   display: block;
+}
 
+.fontNav{
+  font-size: 20px;
+  font-weight: bold;
+  color: #eee;
+}
+
+.searchinput{
+  width: 90%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid #06b;
+  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.scInp{
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+.saveTab{
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  
+}
+.saveTable{
+  margin-top: 30px;
+  width: 100%;
+  height: 100%;
+  /* position: absolute; */
+  overflow: hidden;
 }

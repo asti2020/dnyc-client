@@ -7,6 +7,14 @@ function SaveTable({rentals, handleDelet}){
     console.log(rentals)
     const navigate = useNavigate()
 
+    if (rentals.length === 0) {
+        return (
+            <div className="saveTab">
+                <h2>Save Table</h2>
+                <h2>No Saved Rentals</h2>
+            </div>
+        )
+    } else {
     return (
         <>
         <div className="saveTable">
@@ -61,6 +69,7 @@ function SaveTable({rentals, handleDelet}){
         
         </>
     )
+}
 }
 
 export default SaveTable;

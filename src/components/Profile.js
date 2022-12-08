@@ -10,6 +10,11 @@ function Profile({ user, rentals, setRentals}) {
     console.log(user.email + " i am user rentals")
     const navigate = useNavigate()
 
+// useEffect(() => {
+
+
+// }, [user])
+
     const setDeleteRentals = (rental) => {
         setMyRentals(myRentals.filter(r => r.id !== rental.id))
         setRentals(rentals.filter((r) => r.id !== rental.id))
@@ -28,6 +33,7 @@ function Profile({ user, rentals, setRentals}) {
                 setMyRentals(data)
             })
     }, [])
+    console.log(user.id + "i am user id")
 
     function onImageChange(e) {
         setAvatar(e.target.value)

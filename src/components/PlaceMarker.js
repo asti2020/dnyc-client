@@ -4,7 +4,7 @@ import PlaceInfoWindow  from './PlaceInfoWindow'
 
 
 
-function PlaceMarker({lat, lng, name, price, description, id}) {
+function PlaceMarker({ lat, lng, name, price, description, id}) {
   const [ showTooltip, setShowTooltip ] = useState(false);
   const clickTooltip = () => {
     setShowTooltip(!showTooltip);

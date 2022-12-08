@@ -43,6 +43,7 @@ function Booking({rental}) {
                     }
                     else {
                         setMessage(res.message + "i am came from booking responce not ok ")
+                        navigate('/login') 
                     }
                     setBooking('')
                     setNameBook('')

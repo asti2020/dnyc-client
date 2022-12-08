@@ -13,6 +13,15 @@ function ProfileRentalCard({ user, myRentals, rentals, setDeleteRental, setApDel
 // console.log(myRentals)
     const navigate = useNavigate()
     // let myRentals = rentals.filter(rental => rental.user_id === user.id)
+    if (myRentals.length === 0) {
+        return (
+            <div className="cardProfile">
+                <div className="card-body">
+                    <h4>No Rentals</h4>
+                </div>
+            </div>
+        )
+    } else{
     return (
         <div className="cardProfile">
             { myRentals.map((rental) => (
@@ -27,5 +36,6 @@ function ProfileRentalCard({ user, myRentals, rentals, setDeleteRental, setApDel
             ))}
         </div>
     )
+            }
 }
 export default ProfileRentalCard;

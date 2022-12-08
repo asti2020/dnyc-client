@@ -16,12 +16,11 @@ function Search({setSearch, search}){
     }
     console.log(jwt_token + "i am jwt");
     return (
-        <div className="search">
-            <div className="addRental">
-                <button  className='addButt' onClick={handleClickAdd}><AiOutlineAppstoreAdd /></button>
-            </div>
-            <div className="search__input">
-
+        <>
+            {/* <div className="search">
+            <div className="search__input"> */}
+        <div >
+            <div className="scInp">
                 <input
                     type="text"
                     placeholder= "Search"
@@ -31,6 +30,10 @@ function Search({setSearch, search}){
                 />
                 
             </div>
+
+            {/* <div className="addRental">
+                <button  className='addButt' onClick={handleClickAdd}><AiOutlineAppstoreAdd /></button>
+            </div> */}
             {/* <div className="filtreRadioButton">
                 <div className="filtre">
                     <div className="filtre__input">
@@ -54,6 +57,10 @@ function Search({setSearch, search}){
                 </div>
             </div> */}
         </div>
+        <div className="addRental">
+                <button  className='addButt' onClick={handleClickAdd}><AiOutlineAppstoreAdd /></button>
+            </div>
+        </>
     )
 }
 

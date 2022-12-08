@@ -18,20 +18,23 @@ function Contact({host}){
     };
     return (
         <>
-        
+        <div className='logPlace'>
         <div className='contactForm'>
             <form ref={form}
                 className='form'
                 onSubmit={sendEmail}
             >
+                <lable>Full Name</lable>
                 <input type='text' name='user_name' placeholder='Full Name' required/>
+                <lable>Email</lable>
                 <input type='text' name='user_email' placeholder='Email' required/>
                 <lable>subject</lable>
                 <input type='text' name='subject' placeholder='subject' required/>
                 <lable>Message</lable>
-                <textarea name='message' placeholder='Message' required/>
+                <textarea name='message' placeholder='Message' rows={5} required/>
                 <button className='button'>Send Message</button>
             </form>
+        </div>
         </div>
         </>
     )

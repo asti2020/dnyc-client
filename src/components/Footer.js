@@ -20,12 +20,17 @@ function Footer() {
                         <li onClick={e => navigate('/add')}>Rental space ??</li>
                     </ul>
                 </div> 
-            </div>
                 <div className='footer'>
                     <ul>
                         <li>© 2022 DNYCR.Inc</li>
                     </ul>    
                 </div>
+            </div>
+                {/* <div className='footer'>
+                    <ul>
+                        <li>© 2022 DNYCR.Inc</li>
+                    </ul>    
+                </div> */}
         </div>
     </>
   )

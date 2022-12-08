@@ -12,7 +12,7 @@ function UpdateRental({rental, handleUpdateRental}) {
         description: rental.description,
         price: rental.price,
         image: rental.image,
-        area_sqft: rental.area_sqft,
+        area_sqft: rental.area_sqft,    
         starting_date: rental.starting_date,
         address: rental.address,
         parking: rental.parking,
@@ -41,14 +41,13 @@ function UpdateRental({rental, handleUpdateRental}) {
         .then(updatedRental => {
             console.log(updatedRental)
             setFormData(updatedRental)
-             handleUpdateRental(updatedRental)
+            handleUpdateRental(updatedRental)
             (navigate(`/rentals/${rental.id}`))
         }
         )
 
 }
     console.log(rental)
-   
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({
