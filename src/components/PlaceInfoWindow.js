@@ -48,8 +48,8 @@ function PlaceInfoWindow({ name, description, price, closeWindow}) {
             <div>
             <h1>{name}</h1>
             <h3 onClick={
-                () => navigate(`/rentals/${id}`)
-            }>  View</h3>
+                () => navigate(`/add`)
+            }>  add</h3>
             <p>{description}</p>
             <span>${price}</span>
             </div>

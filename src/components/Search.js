@@ -27,6 +27,14 @@ function Search({setSearch, search}){
                     value={search}
                     className="searchinput"
                     onChange={(e) => setSearch(e.target.value)}
+                    // style={{
+                    //     width: "100%",
+                    //     backgroundImage: `url(${"https://img.icons8.com/ios/50/000000/search--v1.png"})`,
+                    //     backgroundPosition: "10px 10px",
+                    //     backgroundRepeat: "no-repeat",
+                    //     padding: "12px 20px 12px 40px",
+                        
+                    // }}
                 />
                 
             </div>

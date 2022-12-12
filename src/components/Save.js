@@ -29,11 +29,19 @@ const {id} = useParams();
     console.log(saves[0]?.rental + "i am came from save list and rental")
     // console.log(saves    + "i am came from save list and rental")
     console.log(saves + "i am came from save list")
+    if (saves.length < 1){
+        return (
+            <div className="save">
+                <h1 className="saveh1">You have no saved rentals</h1>
+            </div>
+        )
+    } else {
     return (
         <div className="save">
             <SaveTable handleDelet={setSave} rentals={saves}/>
         </div>
     )
+}
 }
 
 export default Save;

@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function SignupForm({setUsers}) {
+    const navigate = useNavigate()
 
     const [first_name, setFirstName] = useState('')
     const [last_name, setLastName] = useState('')
@@ -86,7 +88,7 @@ function SignupForm({setUsers}) {
                             value={birth_date}
                             onChange={(e) => setBirthDate(e.target.value)}
                         />
-                        <button className="submit" type="submit">Sign up</button>
+                        <button  className="submit" type="submit">Sign up</button>
             </form>
         </div>
         </div>
@@ -94,3 +96,7 @@ function SignupForm({setUsers}) {
 }
 
 export default SignupForm
+
+
+// className="submit" type="submit">Sign up</button>
+//             </form>

@@ -1,13 +1,22 @@
 import React from 'react'
+import { Audio } from 'react-loader-spinner'
+
 
 
 function Loading(){
 
     return(
         <>
-            <div className='Loading'>
-                <h3>LOADING</h3>
-                <img className="loadImage" src="" alt='Loading' />
+            <div className='loading'  align='center'>
+                <Audio
+                    height="80"
+                    width="80"
+                    radius="9"
+                    color="green"
+                    ariaLabel="loading"
+                    wrapperStyle
+                    wrapperClass
+                />
             </div>
         
         </>

@@ -78,7 +78,7 @@ function ListingRental ({newRental}){
     return(
         <>
         <div className="listings">
-        <h3>List your product!!</h3>
+        <h2>List your product!!</h2>
         <div className='listing'>
             <form className='addform' onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -189,7 +189,7 @@ function ListingRental ({newRental}){
                         value={features}
                         onChange={(e) => setFeature(e.target.value)}
                         className="form-control"
-                        placeholder="Enter feature"
+                        placeholder="Best For"
                         rows="3"
                     />
                 </div>

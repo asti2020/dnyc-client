@@ -1,6 +1,7 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DeleteRental } from './DeleteRental';
+import { Link } from 'react-router-dom';
 
 function ProfileRentalCard({ user, myRentals, rentals, setDeleteRental, setApDeletRen}) {
     console.log(user.id + "i am user id")
@@ -27,8 +28,9 @@ function ProfileRentalCard({ user, myRentals, rentals, setDeleteRental, setApDel
             { myRentals.map((rental) => (
                 <div className="card-body" key={rental.id}>
                     <h4>{rental.title}</h4>
+                    <Link to={`/rentals/${rental.id}`}><h4>View</h4></Link>
                     <h5 className="card-title">{rental.name}</h5>
-                    <p className="card-text">{rental.description}</p>
+                    {/* <p className="card-text">{rental.features}</p> */}
                     <p className="card-text">{rental.address}</p>
                     <DeleteRental rental={rental} myRentals={myRentals} rentals={rentals} setApDeletRen={setApDeletRen} setDeleteRental={setDeleteRental} />
                         <button className="button" onClick={() => navigate(`/rental/${rental.id}/edit`)}>Edit</button>

@@ -42,12 +42,12 @@ function LoginForm({setUsers}) {
     const onClick = () => {
 
 if (localStorage.getItem('jwt')) {
-    navigate('/')
+    window.location.replace('/')
 }
     }
     return (
         <>
-        <div className="form-group">
+        <div className="logForm">
             <h1>Login</h1>
             <form className='form' onSubmit={handleSubmit}>
                 <label>Email</label>

@@ -19,8 +19,16 @@ import ThankYou from './ThankYou';
 import SignupForm from './SignupForm';
 import  Rental from './Rental';
 import PlaceInfoWindow from './PlaceInfoWindow';
+import Loading from './Loading';
 
 function App() {
+  const [ isLoding, setIsLoding] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoding(false);
+    }, 2000);
+  })
   const [user , setUser] = useState({});
   const jwt_token = localStorage.getItem('jwt');
   useEffect(() => {
@@ -80,7 +88,8 @@ const match = useMatch("/rentals/:id");
 console.log(match + " i am match console")
   return (
     <div className="App">
-
+      {isLoding === true ? <Loading /> : 
+<>
       <NavListing user={user} />
       <Routes>
         <Route path="*" element={<ErrorRoute />} />
@@ -97,6 +106,8 @@ console.log(match + " i am match console")
         <Route path="/thankYou" element={<ThankYou />} />
       </Routes>
       <Footer />
+      </>
+      }
     </div>
   );
   }

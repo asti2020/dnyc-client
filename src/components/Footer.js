@@ -16,7 +16,7 @@ function Footer() {
                 </div>
                 <div className="footerMid">
                     <ul>
-                        <h2>DNYCR</h2>
+                        <h1 onClick={e => navigate('/')}>DNYCR</h1>
                         <li onClick={e => navigate('/add')}>Rental space ??</li>
                     </ul>
                 </div> 

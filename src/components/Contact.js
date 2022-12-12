@@ -5,6 +5,9 @@ import emailjs from '@emailjs/browser';
 function Contact({host}){
     const form = useRef()
     console.log(host)
+    const style ={
+        color: 'black'
+    }
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -21,7 +24,7 @@ function Contact({host}){
         <div className='logPlace'>
         <div className='contactForm'>
             <form ref={form}
-                className='form'
+                className='formCon'
                 onSubmit={sendEmail}
             >
                 <lable>Full Name</lable>

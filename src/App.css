@@ -78,13 +78,13 @@
     border-radius: 7px;
     border: 0;
     box-sizing: border-box;
-    color: #eee;
     font-size: 18px;
     height: 100%;
     outline: 0;
     padding: 4px 20px 0;
-    width: 100%;
+    width: 30vw;
   }
+  
 
   .card {
     display: flex;
@@ -108,7 +108,11 @@
     color: #eee;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
-
+  .form label{
+    color: #eee;
+    font-size: 18px;
+    font-weight: bold;
+  }
   .rentalContainer ul{
     display: flex;
     flex-wrap: wrap;
@@ -129,18 +133,22 @@
     justify-content: flex-start;
   }
 
-  .container {
+   .container {
     margin-top: 10px;
     border-radius: 5px;
+    padding-bottom: 5px;
     background-color: lightblue;
-  }
+  } 
   .addForm{
+    display: flex;
+    display : block;
     color: #06b;
     font-family: arial;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
     background-color: lightgray;
     border-radius: 5px;
     border: 0;
@@ -154,7 +162,7 @@
   .addform{
     width: 30vw;
     border-radius: 5px;
-    text-align: bottom;
+    /* text-align: bottom; */
     font-family: arial;
     background-color: #2F3C7E;
     color: #eee;
@@ -193,19 +201,43 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    margin: 3vw;
+    /* margin: 3vw; */
+    padding: 3vw;
     width: 100%;
     height: auto;
     border-radius: 5px;
     text-align: center;
     font-family: arial;
-    background-color: #FBEAEB;
+    background-image: linear-gradient(to right, #2F3C7E, #eee);
   }
 
   h3{
-    color: darkslateblue;
+    color : #06b;
+    margin-bottom: 15px;
+  }
+  h2{
+    color : #eee;
+    padding: 5px;
+  }
+  h4 {
+    margin: 10px 0px;
   }
 
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+  }
+
+  .image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
 /* Home nav */
 div.scrollmenu {
   background-color: #333;
@@ -276,7 +308,7 @@ p{
   font-family: arial;
   background-image: linear-gradient(to right, #2F3C7E, #FBEAEB);
   /* background-color: #2F3C7E; */
-  color: #eee;
+  color: #eee  important!;
   padding: 15px;
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
 }
@@ -296,11 +328,7 @@ p{
   display: flex;
   flex-direction: column;
   margin: 3vw;
-  /* width: 100%;
-  height: auto;
-  justify-content: flex-start;
-  font-family: arial;
-  color: #eee; */
+
 }
 .containerPrev img{
   width: 35vw;
@@ -313,7 +341,7 @@ p{
 }
 
 lable{
-  color: #eee;
+  color: #eee important!;
 }
 .rentprev{
   color: black;
@@ -324,7 +352,6 @@ lable{
   margin-top: 1vw;
 }
 label{
-  color: black;
   font-family: arial;
   font-size: medium;
   font-weight: bold;
@@ -453,12 +480,7 @@ margin-right: 85%;
   box-sizing: border-box;
   width: 100%;
   align-items: baseline;
-  /* padding: 10px; */
-  /* margin-top: 10px; */
-
-  /* position: absolute; */
   background-image: linear-gradient(to bottom, #fff, #ccc);
-
 }
 
 .footer{
@@ -473,18 +495,15 @@ margin-right: 85%;
   font-size: 14px;
   color: #999;
   font-weight: bold;
-  /* padding: 10px; */
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   background-color: #f5f5f5;
-  /* margin-bottom: 10px; */
   font-size: 14px;
-  /* display: block; */
-  /* position: absolute; */
 }
 
 .myFoot li{
   list-style: none;
+  display: block;
   margin: 10px;
   padding: 10px;
   border-top: 1px solid #ccc;
@@ -493,6 +512,7 @@ margin-right: 85%;
 .search input{
   width: 100%;
   height: 50px;
+  background-image: 'https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-512.png';
   border-radius: 5px;
   text-align: bottom;
   font-family: arial;
@@ -649,7 +669,9 @@ input[placeholder="search"]{
   padding: 10px;
 }
 .SaveMe{
-  position: relative;
+  position: absolute;
+  right: 30px;
+  top: 10px;
   z-index: 1;
 }
 .SaveMe button{
@@ -697,15 +719,7 @@ input[placeholder="search"]{
 .map{
   width: 90%;
   height: 90%;
-  /* border-radius: 5px;
-  border: 1px solid #06b;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  border: 1px solid #06b; */
+ 
 }
 .containerRent{
   margin-top: 15px;
@@ -742,9 +756,9 @@ font-weight: bold;
   margin-top: -70px;
 }
 
-form .form{
-  width: 10vw;
-}
+/* form .form{
+  
+} */
 .mapprev{
   display: flex;
   flex-direction: row;
@@ -828,7 +842,7 @@ table{
 .container{
   margin-top: -30px;
   padding-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 3px;
   width: 100%;
   height: 100%;
   display: block;
@@ -848,7 +862,7 @@ table{
   box-shadow: 0 14px 15px 0 rgba(0, 0, 0, 0.2);
   padding: 10px;
   box-sizing: border-box;
-  margin-top: 10px;
+  margin-top: 60px;
   margin-bottom: 10px;
 }
 
@@ -869,4 +883,68 @@ table{
   height: 100%;
   /* position: absolute; */
   overflow: hidden;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+}
+
+.contactForm{
+  display:  flex;
+}
+
+.contactForm input{
+  width: 100%;
+  height: 5vw;
+}
+
+.contactForm textarea{
+  border-radius: 7px; 
+  border: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  height: 7vw !important;
+}
+
+.cocH{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-style: italic;
+  color: #06b;
+  margin-bottom: 10px;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* padding-top: 10px; */
+  margin-bottom: 10px;
+}
+
+.logPlace lable{
+  font-size: 18px;
+  font-weight: bold;
+  color: #06b;
+
+}
+.saveh1{
+  display: flex;
+  justify-content: center;
+  margin-top: 10vw;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-style: italic;
+  color: #06b;
+  margin-bottom: 10vw;
+}
+
+h1{
+  color: #bababa;
 }

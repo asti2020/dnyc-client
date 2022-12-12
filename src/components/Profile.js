@@ -49,11 +49,14 @@ function Profile({ user, rentals, setRentals}) {
                     <div className="profileContainer">
                         <div className="profile">
                             <div>
+                                <h2 style={
+                                    {padding: "10px"}
+                                }> Hey  {user.first_name} !</h2>
                             {/* <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} /> */}
-                                <form className="avatar" onSubmit={handleSubmit}>
+                                {/* <form className="avatar" onSubmit={handleSubmit}>
                                 <img  className="avatar" src={user.avatar} alt={user.first_name + "alt"} />
                                     <input type="file" accept="image/*" multiple={false} onChange={onImageChange}  value={avatar}/>
-                                </form>
+                                </form> */}
                             </div>
                         </div>
                         <div className="profileListing">
